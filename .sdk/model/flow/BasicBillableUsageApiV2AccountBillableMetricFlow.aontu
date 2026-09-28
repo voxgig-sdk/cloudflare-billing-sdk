@@ -1,0 +1,26 @@
+# BasicBillableUsageApiV2AccountBillableMetricFlow
+
+main: kit: flow: BasicBillableUsageApiV2AccountBillableMetricFlow:
+{
+  entity: "billable_usage_api_v2_account_billable_metric",
+  kind: "basic",
+  name: "BasicBillableUsageApiV2AccountBillableMetricFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "billable_usage_api_v2_account_billable_metric_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillableUsageApiV2AccountBillableMetricFlow"
+}

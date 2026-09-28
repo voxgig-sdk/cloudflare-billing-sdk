@@ -1,0 +1,110 @@
+# Entity: billable_usage
+
+main: kit: entity: billable_usage: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      sh: "Contains error details if the request failed."
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      sh: "Contains informational notices about the response."
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      sh: "Contains the array of billable usage records."
+      t: "`$ARRAY`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      sh: "Indicates whether the API call was successful."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "billable_usage"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/billable-usage"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "2025-05-01"
+                k: "query"
+                n: "from"
+                or: "from"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2025-05-31"
+                k: "query"
+                n: "to"
+                or: "to"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/billable-usage"
+          q: {
+            exist: [
+              "account_id"
+              "from"
+              "to"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "billable-usage"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

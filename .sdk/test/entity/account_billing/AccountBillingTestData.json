@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "account_billing": {
+      "ACCOUNT_BILLING00": {
+        "account_id": "ACCOUNT01",
+        "receipt_id": "RECEIPT01",
+        "id": "ACCOUNT_BILLING00"
+      },
+      "ACCOUNT_BILLING01": {
+        "account_id": "ACCOUNT01",
+        "receipt_id": "RECEIPT01",
+        "id": "ACCOUNT_BILLING01"
+      },
+      "ACCOUNT_BILLING02": {
+        "account_id": "ACCOUNT01",
+        "receipt_id": "RECEIPT01",
+        "id": "ACCOUNT_BILLING02"
+      }
+    }
+  },
+  "new": {
+    "account_billing": {
+      "account_billing_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/receipts/{receipt_id}/pdf": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

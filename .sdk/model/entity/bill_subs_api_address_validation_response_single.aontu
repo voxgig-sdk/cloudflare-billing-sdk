@@ -1,0 +1,84 @@
+# Entity: bill_subs_api_address_validation_response_single
+
+main: kit: entity: bill_subs_api_address_validation_response_single: {
+
+  alias: field: {}
+
+  fields: {
+    address: {
+      h: "Address"
+      n: "address"
+      r: false
+      sh: "Address line 1."
+      t: "`$STRING`"
+    }
+    address2: {
+      h: "Address2"
+      n: "address2"
+      r: false
+      sh: "Address line 2."
+      t: "`$STRING`"
+    }
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      sh: "City."
+      t: "`$STRING`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      sh: "Country code."
+      t: "`$STRING`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      sh: "State or province."
+      t: "`$STRING`"
+    }
+    zipcode: {
+      h: "Zipcode"
+      n: "zipcode"
+      r: false
+      sh: "Postal or zip code."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "bill_subs_api_address_validation_response_single"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /billing/address-validation"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/billing/address-validation"
+          s: [
+            {
+              lit: "billing"
+            }
+            {
+              lit: "address-validation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

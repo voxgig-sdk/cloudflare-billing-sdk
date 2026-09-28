@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "bill_subs_api_cancel_reason_response_single": {
+      "BILL_SUBS_API_CANCEL_REASON_RESPONSE_SINGLE00": {
+        "other": "s1e",
+        "reason_code": [],
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "subscription_identifier": "SUBSCRIPTION_IDENTIFIER01",
+        "id": "BILL_SUBS_API_CANCEL_REASON_RESPONSE_SINGLE00"
+      },
+      "BILL_SUBS_API_CANCEL_REASON_RESPONSE_SINGLE01": {
+        "other": "s3c",
+        "reason_code": [],
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "subscription_identifier": "SUBSCRIPTION_IDENTIFIER01",
+        "id": "BILL_SUBS_API_CANCEL_REASON_RESPONSE_SINGLE01"
+      },
+      "BILL_SUBS_API_CANCEL_REASON_RESPONSE_SINGLE02": {
+        "other": "s5a",
+        "reason_code": [],
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "subscription_identifier": "SUBSCRIPTION_IDENTIFIER01",
+        "id": "BILL_SUBS_API_CANCEL_REASON_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_cancel_reason_response_single": {
+      "bill_subs_api_cancel_reason_response_single_ref01": {
+        "other": "s78",
+        "reason_code": [],
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/subscriptions/{subscription_identifier}/cancel-reason": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/subscriptions/{subscription_identifier}/cancel-reason": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

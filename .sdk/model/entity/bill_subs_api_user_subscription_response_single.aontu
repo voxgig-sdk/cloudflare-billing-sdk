@@ -1,0 +1,179 @@
+# Entity: bill_subs_api_user_subscription_response_single
+
+main: kit: entity: bill_subs_api_user_subscription_response_single: {
+
+  alias: field: {}
+
+  fields: {
+    app: {
+      de: true
+      h: "App"
+      n: "app"
+      r: false
+      sh: "Cloudflare Apps Marketplace is sunset."
+      t: "`$OBJECT`"
+    }
+    component_values: {
+      h: "Component Values"
+      n: "component_values"
+      r: false
+      sh: "Configurable component values for the subscription."
+      t: "`$ARRAY`"
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: false
+      ro: true
+      sh: "The monetary unit in which pricing information is displayed."
+      t: "`$STRING`"
+    }
+    current_period_end: {
+      fo: "date-time"
+      h: "Current Period End"
+      n: "current_period_end"
+      r: false
+      ro: true
+      sh: "The end of the current period and also when the next billing is due."
+      t: "`$STRING`"
+    }
+    current_period_start: {
+      fo: "date-time"
+      h: "Current Period Start"
+      n: "current_period_start"
+      r: false
+      ro: true
+      sh: "When the current billing period started."
+      t: "`$STRING`"
+    }
+    frequency: {
+      h: "Frequency"
+      n: "frequency"
+      r: false
+      sh: "How often the subscription is renewed automatically."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      ro: true
+      sh: "Subscription identifier tag."
+      t: "`$STRING`"
+    }
+    price: {
+      h: "Price"
+      n: "price"
+      r: false
+      ro: true
+      sh: "The price of the subscription that will be billed, in US dollars."
+      t: "`$NUMBER`"
+    }
+    rate_plan: {
+      h: "Rate Plan"
+      n: "rate_plan"
+      r: false
+      sh: "The rate plan applied to the subscription."
+      t: "`$OBJECT`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      ro: true
+      sh: "The state that the subscription is in."
+      t: "`$STRING`"
+    }
+    zone: {
+      h: "Zone"
+      n: "zone"
+      r: false
+      sh: "A simple zone object."
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "bill_subs_api_user_subscription_response_single"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /user/subscriptions"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/user/subscriptions"
+          s: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "subscriptions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /user/subscriptions/{identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "506e3185e9c882d175a2d0cb0093d9f2"
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/user/subscriptions/{identifier}"
+          q: {
+            exist: [
+              "identifier"
+            ]
+          }
+          s: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

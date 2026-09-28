@@ -1,0 +1,158 @@
+# Entity: bill_subs_api_cancel_reason_response_single
+
+main: kit: entity: bill_subs_api_cancel_reason_response_single: {
+
+  alias: field: {}
+
+  fields: {
+    other: {
+      h: "Other"
+      n: "other"
+      r: false
+      sh: "Additional cancellation details."
+      t: "`$STRING`"
+    }
+    reason_code: {
+      h: "Reason Code"
+      n: "reason_code"
+      r: false
+      sh: "The cancellation reason codes."
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "bill_subs_api_cancel_reason_response_single"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/subscriptions/{subscription_identifier}/cancel-reason"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "506e3185e9c882d175a2d0cb0093d9f2"
+                k: "param"
+                n: "subscription_identifier"
+                or: "subscription_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/subscriptions/{subscription_identifier}/cancel-reason"
+          q: {
+            exist: [
+              "account_id"
+              "subscription_identifier"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_identifier"
+            }
+            {
+              lit: "cancel-reason"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/subscriptions/{subscription_identifier}/cancel-reason"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "506e3185e9c882d175a2d0cb0093d9f2"
+                k: "param"
+                n: "subscription_identifier"
+                or: "subscription_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/subscriptions/{subscription_identifier}/cancel-reason"
+          q: {
+            exist: [
+              "account_id"
+              "subscription_identifier"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_identifier"
+            }
+            {
+              lit: "cancel-reason"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,69 @@
+# Entity: invoice
+
+main: kit: entity: invoice: {
+
+  alias: field: {}
+
+  fields: {
+    toggle: {
+      h: "Toggle"
+      n: "toggle"
+      r: false
+      sh: "Whether to enable or disable PDF invoice generation."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "invoice"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/invoices"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/invoices"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "invoices"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

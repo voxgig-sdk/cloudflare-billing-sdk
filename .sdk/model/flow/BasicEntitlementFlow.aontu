@@ -1,0 +1,26 @@
+# BasicEntitlementFlow
+
+main: kit: flow: BasicEntitlementFlow:
+{
+  entity: "entitlement",
+  kind: "basic",
+  name: "BasicEntitlementFlow",
+  step: [
+    {
+      m: {
+        zone_id: "zone01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "entitlement_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEntitlementFlow"
+}

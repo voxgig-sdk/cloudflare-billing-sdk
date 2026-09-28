@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "set_as_default": {
+      "SET_AS_DEFAULT00": {
+        "errors": [],
+        "messages": [],
+        "result": "s2a",
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "payment_method_id": "PAYMENT_METHOD01",
+        "id": "SET_AS_DEFAULT00"
+      },
+      "SET_AS_DEFAULT01": {
+        "errors": [],
+        "messages": [],
+        "result": "s52",
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "payment_method_id": "PAYMENT_METHOD01",
+        "id": "SET_AS_DEFAULT01"
+      },
+      "SET_AS_DEFAULT02": {
+        "errors": [],
+        "messages": [],
+        "result": "s7a",
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "payment_method_id": "PAYMENT_METHOD01",
+        "id": "SET_AS_DEFAULT02"
+      }
+    }
+  },
+  "new": {
+    "set_as_default": {
+      "set_as_default_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": "sa2",
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/payment-methods/{payment_method_id}/set-as-default": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

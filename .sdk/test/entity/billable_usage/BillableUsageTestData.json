@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "billable_usage": {
+      "BILLABLE_USAGE00": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "BILLABLE_USAGE01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "BILLABLE_USAGE02": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "billable_usage": {
+      "billable_usage_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/billable-usage": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

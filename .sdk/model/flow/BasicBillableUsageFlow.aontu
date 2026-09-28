@@ -1,0 +1,26 @@
+# BasicBillableUsageFlow
+
+main: kit: flow: BasicBillableUsageFlow:
+{
+  entity: "billable_usage",
+  kind: "basic",
+  name: "BasicBillableUsageFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "billable_usage_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillableUsageFlow"
+}

@@ -1,0 +1,48 @@
+# Entity: bill_subs_api_user_subscription_response_collection
+
+main: kit: entity: bill_subs_api_user_subscription_response_collection: {
+
+  alias: field: {}
+
+  fields: {
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "bill_subs_api_user_subscription_response_collection"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /user/subscriptions"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/user/subscriptions"
+          s: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "subscriptions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

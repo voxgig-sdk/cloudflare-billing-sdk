@@ -1,0 +1,18 @@
+# BasicBillSubsApiAddressValidationResponseSingleFlow
+
+main: kit: flow: BasicBillSubsApiAddressValidationResponseSingleFlow:
+{
+  entity: "bill_subs_api_address_validation_response_single",
+  kind: "basic",
+  name: "BasicBillSubsApiAddressValidationResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "bill_subs_api_address_validation_response_single_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicBillSubsApiAddressValidationResponseSingleFlow"
+}

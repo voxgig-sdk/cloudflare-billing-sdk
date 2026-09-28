@@ -1,0 +1,1307 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Entitlement | Cloudflare Billing</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Billing<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-billing-sdk">voxgig-sdk/cloudflare-billing-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Billing</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account_billing.html">AccountBilling</a>
+<a href="../api/account_billing_profile.html">AccountBillingProfile</a>
+<a href="../api/account_subscription.html">AccountSubscription</a>
+<a href="../api/bill_subs_api_account_billing_history_collection.html">BillSubsApiAccountBillingHistoryCollection</a>
+<a href="../api/bill_subs_api_account_credit.html">BillSubsApiAccountCredit</a>
+<a href="../api/bill_subs_api_account_subscription_response_collection.html">BillSubsApiAccountSubscriptionResponseCollection</a>
+<a href="../api/bill_subs_api_account_subscription_response_single.html">BillSubsApiAccountSubscriptionResponseSingle</a>
+<a href="../api/bill_subs_api_address_validation_response_single.html">BillSubsApiAddressValidationResponseSingle</a>
+<a href="../api/bill_subs_api_bad_debt_response_single.html">BillSubsApiBadDebtResponseSingle</a>
+<a href="../api/bill_subs_api_billing_history_collection.html">BillSubsApiBillingHistoryCollection</a>
+<a href="../api/bill_subs_api_billing_response_single.html">BillSubsApiBillingResponseSingle</a>
+<a href="../api/bill_subs_api_cancel_reason_response_single.html">BillSubsApiCancelReasonResponseSingle</a>
+<a href="../api/bill_subs_api_client_secret_response_single.html">BillSubsApiClientSecretResponseSingle</a>
+<a href="../api/bill_subs_api_payment_intent_response_single.html">BillSubsApiPaymentIntentResponseSingle</a>
+<a href="../api/bill_subs_api_payment_method_response_collection.html">BillSubsApiPaymentMethodResponseCollection</a>
+<a href="../api/bill_subs_api_payment_method_response_single.html">BillSubsApiPaymentMethodResponseSingle</a>
+<a href="../api/bill_subs_api_plan_response_collection.html">BillSubsApiPlanResponseCollection</a>
+<a href="../api/bill_subs_api_rate_plan_simple.html">BillSubsApiRatePlanSimple</a>
+<a href="../api/bill_subs_api_unpaid_invoices_response_single.html">BillSubsApiUnpaidInvoicesResponseSingle</a>
+<a href="../api/bill_subs_api_user_subscription_response_collection.html">BillSubsApiUserSubscriptionResponseCollection</a>
+<a href="../api/bill_subs_api_user_subscription_response_single.html">BillSubsApiUserSubscriptionResponseSingle</a>
+<a href="../api/bill_subs_api_zone_subscription_response_single.html">BillSubsApiZoneSubscriptionResponseSingle</a>
+<a href="../api/billable_usage.html">BillableUsage</a>
+<a href="../api/billable_usage_api_usage_info.html">BillableUsageApiUsageInfo</a>
+<a href="../api/billable_usage_api_v2_account_billable_metric.html">BillableUsageApiV2AccountBillableMetric</a>
+<a href="../api/billable_usage_api_v2_usage.html">BillableUsageApiV2Usage</a>
+<a href="../api/cancel_downgrade.html">CancelDowngrade</a>
+<a aria-current="page" href="../api/entitlement.html">Entitlement</a><div class="nav-sections"><a class="nav-section" href="#get-accountsaccount_identitlements">GET /accounts/{account_id}/entitlements</a>
+<a class="nav-section" href="#get-zoneszone_identitlements">GET /zones/{zone_id}/entitlements</a></div>
+<a href="../api/invoice.html">Invoice</a>
+<a href="../api/payment_method.html">PaymentMethod</a>
+<a href="../api/set_as_default.html">SetAsDefault</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/user_subscription.html">UserSubscription</a>
+<a href="../api/zone_rate_plan.html">ZoneRatePlan</a>
+<a href="../api/zone_subscription.html">ZoneSubscription</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="entitlement">Entitlement</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_identitlements"><code>/accounts/{account_id}/entitlements</code></a></td>
+<td><code>list</code></td>
+<td>List of entitlements for the account</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-zoneszone_identitlements"><code>/zones/{zone_id}/entitlements</code></a></td>
+<td><code>list</code></td>
+<td>List of entitlements for the zone</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">entitlements, err := client.Entitlement(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(entitlements)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local entitlements, err = client:Entitlement():list({ account_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$entitlements = $client-&gt;Entitlement()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">entitlements = client.Entitlement().list({&quot;account_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">entitlements = client.Entitlement.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const entitlements = await client.Entitlement().list({ account_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>List of errors, empty on success.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>List of informational messages.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>List of entitlements for the requested object.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_identitlements" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/entitlements</h3>
+<p>Operation ID: <code>entitlements-get-account-entitlements</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Identifier of the account. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-list-of-entitlements-for-the-account" class="status" data-status="2xx">200: List of entitlements for the account</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of errors, empty on success.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of informational messages.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of entitlements for the requested object.</td>
+</tr>
+<tr>
+<td><code>result[].allocation</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Represents the allocation value for an entitlement. The shape of <code>value</code> depends on <code>type</code>: <code>bool</code> uses a boolean, <code>max_count</code> uses an integer, <code>enum_number</code> uses an array of numbers, <code>range</code> uses an object with <code>min</code> and <code>max</code> integer fields, and <code>string</code> uses a string.</td>
+</tr>
+<tr>
+<td><code>result[].allocation.type</code></td>
+<td><code>enum: bool, max_count, enum_number, range, string</code></td>
+<td>Yes</td>
+<td>Allocation type discriminator.</td>
+</tr>
+<tr>
+<td><code>result[].allocation.value</code></td>
+<td><code>boolean or integer or string or array of number or object</code></td>
+<td>Yes</td>
+<td>Contains the allocation value whose concrete type the <code>type</code> field determines: bool yields a boolean, <code>max_count</code> yields an integer, <code>enum_number</code> yields an array of numbers, range yields an object with <code>min</code> and <code>max</code>, and string yields a string.</td>
+</tr>
+<tr>
+<td><code>result[].created_date</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ISO 8601 timestamp (microsecond precision, no timezone offset) when the entitlement was created. Format: <code>YYYY-MM-DDTHH:MM:SS.ffffff</code>.</td>
+</tr>
+<tr>
+<td><code>result[].deleted_date</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ISO 8601 timestamp when the entitlement was deleted, or empty string if not deleted.</td>
+</tr>
+<tr>
+<td><code>result[].edited_date</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ISO 8601 timestamp (microsecond precision, no timezone offset) when the entitlement was last edited.</td>
+</tr>
+<tr>
+<td><code>result[].feature</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Describes a product feature associated with an entitlement.</td>
+</tr>
+<tr>
+<td><code>result[].feature.feature_set</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The logical grouping (set) this feature belongs to.</td>
+</tr>
+<tr>
+<td><code>result[].feature.id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>Numeric identifier of the feature.</td>
+</tr>
+<tr>
+<td><code>result[].feature.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique string key for the feature.</td>
+</tr>
+<tr>
+<td><code>result[].feature.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable name of the feature.</td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Entitlement identifier, equal to the feature key.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="204-request-canceled-by-the-client-before-the-upstream-could-respond-no-response-body" class="status" data-status="2xx">204: Request canceled by the client before the upstream could respond. No response body.</h5>
+<h5 id="400-bad-request-invalid-account-identifier-or-object-type" class="status" data-status="4xx">400: Bad request, invalid account identifier or object type</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-authentication-required" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-insufficient-permissions" class="status" data-status="4xx">403: Insufficient permissions</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-account-not-found-or-unknown-route" class="status" data-status="4xx">404: Account not found or unknown route</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="405-http-method-not-allowed" class="status" data-status="4xx">405: HTTP method not allowed</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-internal-server-error" class="status" data-status="5xx">500: Internal server error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="503-upstream-entitlements-service-unavailable-or-timed-out" class="status" data-status="5xx">503: Upstream entitlements service unavailable or timed out</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-zoneszone_identitlements" class="operation" data-method="get"><code>GET</code> /zones/{zone_id}/entitlements</h3>
+<p>Operation ID: <code>entitlements-get-zone-entitlements</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes | Identifier of the zone. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-list-of-entitlements-for-the-zone" class="status" data-status="2xx">200: List of entitlements for the zone</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of errors, empty on success.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of informational messages.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of entitlements for the requested object.</td>
+</tr>
+<tr>
+<td><code>result[].allocation</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Represents the allocation value for an entitlement. The shape of <code>value</code> depends on <code>type</code>: <code>bool</code> uses a boolean, <code>max_count</code> uses an integer, <code>enum_number</code> uses an array of numbers, <code>range</code> uses an object with <code>min</code> and <code>max</code> integer fields, and <code>string</code> uses a string.</td>
+</tr>
+<tr>
+<td><code>result[].allocation.type</code></td>
+<td><code>enum: bool, max_count, enum_number, range, string</code></td>
+<td>Yes</td>
+<td>Allocation type discriminator.</td>
+</tr>
+<tr>
+<td><code>result[].allocation.value</code></td>
+<td><code>boolean or integer or string or array of number or object</code></td>
+<td>Yes</td>
+<td>Contains the allocation value whose concrete type the <code>type</code> field determines: bool yields a boolean, <code>max_count</code> yields an integer, <code>enum_number</code> yields an array of numbers, range yields an object with <code>min</code> and <code>max</code>, and string yields a string.</td>
+</tr>
+<tr>
+<td><code>result[].created_date</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ISO 8601 timestamp (microsecond precision, no timezone offset) when the entitlement was created. Format: <code>YYYY-MM-DDTHH:MM:SS.ffffff</code>.</td>
+</tr>
+<tr>
+<td><code>result[].deleted_date</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ISO 8601 timestamp when the entitlement was deleted, or empty string if not deleted.</td>
+</tr>
+<tr>
+<td><code>result[].edited_date</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ISO 8601 timestamp (microsecond precision, no timezone offset) when the entitlement was last edited.</td>
+</tr>
+<tr>
+<td><code>result[].feature</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Describes a product feature associated with an entitlement.</td>
+</tr>
+<tr>
+<td><code>result[].feature.feature_set</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The logical grouping (set) this feature belongs to.</td>
+</tr>
+<tr>
+<td><code>result[].feature.id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>Numeric identifier of the feature.</td>
+</tr>
+<tr>
+<td><code>result[].feature.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique string key for the feature.</td>
+</tr>
+<tr>
+<td><code>result[].feature.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable name of the feature.</td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Entitlement identifier, equal to the feature key.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="204-request-canceled-by-the-client-before-the-upstream-could-respond-no-response-body-1" class="status" data-status="2xx">204: Request canceled by the client before the upstream could respond. No response body.</h5>
+<h5 id="400-bad-request-invalid-zone-identifier-or-object-type" class="status" data-status="4xx">400: Bad request, invalid zone identifier or object type</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-authentication-required-1" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-insufficient-permissions-1" class="status" data-status="4xx">403: Insufficient permissions</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-zone-not-found-or-unknown-route" class="status" data-status="4xx">404: Zone not found or unknown route</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="405-http-method-not-allowed-1" class="status" data-status="4xx">405: HTTP method not allowed</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-internal-server-error-1" class="status" data-status="5xx">500: Internal server error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="503-upstream-entitlements-service-unavailable-or-timed-out-1" class="status" data-status="5xx">503: Upstream entitlements service unavailable or timed out</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Numeric message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for error responses.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always false for error responses.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

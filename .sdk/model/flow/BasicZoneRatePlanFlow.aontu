@@ -1,0 +1,49 @@
+# BasicZoneRatePlanFlow
+
+main: kit: flow: BasicZoneRatePlanFlow:
+{
+  entity: "zone_rate_plan",
+  kind: "basic",
+  name: "BasicZoneRatePlanFlow",
+  step: [
+    {
+      m: {
+        zone_id: "zone01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "zone_rate_plan_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "zone_rate_plan_ref01",
+        srcdatavar: "zone_rate_plan_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "zone_rate_plan01",
+        zone_id: "zone01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-zone_rate_plan_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicZoneRatePlanFlow"
+}

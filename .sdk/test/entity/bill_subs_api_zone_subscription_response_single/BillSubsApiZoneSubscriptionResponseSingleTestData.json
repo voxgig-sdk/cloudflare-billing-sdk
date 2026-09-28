@@ -1,0 +1,95 @@
+{
+  "existing": {
+    "bill_subs_api_zone_subscription_response_single": {
+      "BILL_SUBS_API_ZONE_SUBSCRIPTION_RESPONSE_SINGLE00": {
+        "app": {},
+        "component_values": [],
+        "currency": "s7a",
+        "current_period_end": "s7b",
+        "current_period_start": "s7c",
+        "frequency": "s7d",
+        "id": "BILL_SUBS_API_ZONE_SUBSCRIPTION_RESPONSE_SINGLE00",
+        "price": 127,
+        "rate_plan": {},
+        "result": {},
+        "state": "s82",
+        "zone": {},
+        "zone_id": "ZONE01"
+      },
+      "BILL_SUBS_API_ZONE_SUBSCRIPTION_RESPONSE_SINGLE01": {
+        "app": {},
+        "component_values": [],
+        "currency": "sf2",
+        "current_period_end": "sf3",
+        "current_period_start": "sf4",
+        "frequency": "sf5",
+        "id": "BILL_SUBS_API_ZONE_SUBSCRIPTION_RESPONSE_SINGLE01",
+        "price": 247,
+        "rate_plan": {},
+        "result": {},
+        "state": "sfa",
+        "zone": {},
+        "zone_id": "ZONE01"
+      },
+      "BILL_SUBS_API_ZONE_SUBSCRIPTION_RESPONSE_SINGLE02": {
+        "app": {},
+        "component_values": [],
+        "currency": "s16a",
+        "current_period_end": "s16b",
+        "current_period_start": "s16c",
+        "frequency": "s16d",
+        "id": "BILL_SUBS_API_ZONE_SUBSCRIPTION_RESPONSE_SINGLE02",
+        "price": 367,
+        "rate_plan": {},
+        "result": {},
+        "state": "s172",
+        "zone": {},
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_zone_subscription_response_single": {
+      "bill_subs_api_zone_subscription_response_single_ref01": {
+        "app": {},
+        "component_values": [],
+        "currency": "s1e2",
+        "current_period_end": "s1e3",
+        "current_period_start": "s1e4",
+        "frequency": "s1e5",
+        "price": 487,
+        "rate_plan": {},
+        "result": {},
+        "state": "s1ea",
+        "zone": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /zones/{zone_id}/subscription": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /zones/{zone_id}/subscriptions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/subscription": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /zones/{zone_id}/subscription": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /zones/{zone_id}/subscriptions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

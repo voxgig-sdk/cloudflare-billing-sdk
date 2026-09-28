@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "billable_usage_api_v2_account_billable_metric": {
+      "BILLABLE_USAGE_API_V2_ACCOUNT_BILLABLE_METRIC00": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "BILLABLE_USAGE_API_V2_ACCOUNT_BILLABLE_METRIC01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "BILLABLE_USAGE_API_V2_ACCOUNT_BILLABLE_METRIC02": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "billable_usage_api_v2_account_billable_metric": {
+      "billable_usage_api_v2_account_billable_metric_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/billable/usage/billable-metrics": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

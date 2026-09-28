@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "zone_rate_plan": {
+      "ZONE_RATE_PLAN00": {
+        "id": "ZONE_RATE_PLAN00",
+        "result": {},
+        "plan_identifier": "PLAN_IDENTIFIER01",
+        "zone_id": "ZONE01"
+      },
+      "ZONE_RATE_PLAN01": {
+        "id": "ZONE_RATE_PLAN01",
+        "result": {},
+        "plan_identifier": "PLAN_IDENTIFIER01",
+        "zone_id": "ZONE01"
+      },
+      "ZONE_RATE_PLAN02": {
+        "id": "ZONE_RATE_PLAN02",
+        "result": {},
+        "plan_identifier": "PLAN_IDENTIFIER01",
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "zone_rate_plan": {
+      "zone_rate_plan_ref01": {
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /zones/{zone_id}/available_plans": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/available_plans/{plan_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

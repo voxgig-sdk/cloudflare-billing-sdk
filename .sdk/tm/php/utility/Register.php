@@ -1,0 +1,70 @@
+<?php
+declare(strict_types=1);
+
+// CloudflareBilling SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+CloudflareBillingUtility::setRegistrar(function (CloudflareBillingUtility $u): void {
+    $u->clean = [CloudflareBillingClean::class, 'call'];
+    $u->done = [CloudflareBillingDone::class, 'call'];
+    $u->make_error = [CloudflareBillingMakeError::class, 'call'];
+    $u->feature_add = [CloudflareBillingFeatureAdd::class, 'call'];
+    $u->feature_hook = [CloudflareBillingFeatureHook::class, 'call'];
+    $u->feature_init = [CloudflareBillingFeatureInit::class, 'call'];
+    $u->fetcher = [CloudflareBillingFetcher::class, 'call'];
+    $u->make_fetch_def = [CloudflareBillingMakeFetchDef::class, 'call'];
+    $u->make_context = [CloudflareBillingMakeContext::class, 'call'];
+    $u->make_options = [CloudflareBillingMakeOptions::class, 'call'];
+    $u->make_request = [CloudflareBillingMakeRequest::class, 'call'];
+    $u->make_response = [CloudflareBillingMakeResponse::class, 'call'];
+    $u->make_result = [CloudflareBillingMakeResult::class, 'call'];
+    $u->make_point = [CloudflareBillingMakePoint::class, 'call'];
+    $u->make_spec = [CloudflareBillingMakeSpec::class, 'call'];
+    $u->make_url = [CloudflareBillingMakeUrl::class, 'call'];
+    $u->param = [CloudflareBillingParam::class, 'call'];
+    $u->prepare_auth = [CloudflareBillingPrepareAuth::class, 'call'];
+    $u->prepare_body = [CloudflareBillingPrepareBody::class, 'call'];
+    $u->prepare_headers = [CloudflareBillingPrepareHeaders::class, 'call'];
+    $u->prepare_method = [CloudflareBillingPrepareMethod::class, 'call'];
+    $u->prepare_params = [CloudflareBillingPrepareParams::class, 'call'];
+    $u->prepare_path = [CloudflareBillingPreparePath::class, 'call'];
+    $u->prepare_query = [CloudflareBillingPrepareQuery::class, 'call'];
+    $u->graphql_body = [CloudflareBillingGraphql::class, 'body'];
+    $u->graphql_errors = [CloudflareBillingGraphql::class, 'errors'];
+    $u->result_basic = [CloudflareBillingResultBasic::class, 'call'];
+    $u->result_body = [CloudflareBillingResultBody::class, 'call'];
+    $u->result_headers = [CloudflareBillingResultHeaders::class, 'call'];
+    $u->transform_request = [CloudflareBillingTransformRequest::class, 'call'];
+    $u->transform_response = [CloudflareBillingTransformResponse::class, 'call'];
+});

@@ -1,0 +1,170 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { CloudflareBillingSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('BillSubsApiUserSubscriptionResponseSingleEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when CLOUDFLARE_BILLING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CLOUDFLARE_BILLING_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = CloudflareBillingSDK.test()
+    const ent = testsdk.BillSubsApiUserSubscriptionResponseSingle()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.CLOUDFLARE_BILLING_TEST_LIVE
+    for (const op of ['create', 'update']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'bill_subs_api_user_subscription_response_single.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"app":{"a":true,"de":true,"h":"App","n":"app","r":false,"sh":"Cloudflare Apps Marketplace is sunset.","t":"`$OBJECT`","key$":"app","index$":0},"component_values":{"a":true,"h":"Component Values","n":"component_values","r":false,"sh":"Configurable component values for the subscription.","t":"`$ARRAY`","key$":"component_values","index$":1},"currency":{"a":true,"h":"Currency","n":"currency","r":false,"ro":true,"sh":"The monetary unit in which pricing information is displayed.","t":"`$STRING`","key$":"currency","index$":2},"current_period_end":{"a":true,"fo":"date-time","h":"Current Period End","n":"current_period_end","r":false,"ro":true,"sh":"The end of the current period and also when the next billing is due.","t":"`$STRING`","key$":"current_period_end","index$":3},"current_period_start":{"a":true,"fo":"date-time","h":"Current Period Start","n":"current_period_start","r":false,"ro":true,"sh":"When the current billing period started.","t":"`$STRING`","key$":"current_period_start","index$":4},"frequency":{"a":true,"h":"Frequency","n":"frequency","r":false,"sh":"How often the subscription is renewed automatically.","t":"`$STRING`","key$":"frequency","index$":5},"id":{"a":true,"h":"Id","n":"id","r":false,"ro":true,"sh":"Subscription identifier tag.","t":"`$STRING`","key$":"id","index$":6},"price":{"a":true,"h":"Price","n":"price","r":false,"ro":true,"sh":"The price of the subscription that will be billed, in US dollars.","t":"`$NUMBER`","key$":"price","index$":7},"rate_plan":{"a":true,"h":"Rate Plan","n":"rate_plan","r":false,"sh":"The rate plan applied to the subscription.","t":"`$OBJECT`","key$":"rate_plan","index$":8},"state":{"a":true,"h":"State","n":"state","r":false,"ro":true,"sh":"The state that the subscription is in.","t":"`$STRING`","key$":"state","index$":9},"zone":{"a":true,"h":"Zone","n":"zone","r":false,"sh":"A simple zone object.","t":"`$OBJECT`","key$":"zone","index$":10}},"id":{"field":"id","name":"id"},"name":"bill_subs_api_user_subscription_response_single","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /user/subscriptions","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/user/subscriptions","q":{},"r":{},"s":[{"lit":"user"},{"lit":"subscriptions"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"create"},"update":{"input":"data","name":"update","points":[{"a":true,"co":{"id":"PUT /user/subscriptions/{identifier}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"506e3185e9c882d175a2d0cb0093d9f2","k":"param","n":"identifier","or":"identifier","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"PUT","o":"/user/subscriptions/{identifier}","q":{"exist":["identifier"]},"r":{},"s":[{"lit":"user"},{"lit":"subscriptions"},{"var":"identifier"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"update"}},"relations":{"ancestors":[]},"key$":"bill_subs_api_user_subscription_response_single","name__orig":"bill_subs_api_user_subscription_response_single","Name":"BillSubsApiUserSubscriptionResponseSingle","name_":"bill_subs_api_user_subscription_response_single","name-":"bill-subs-api-user-subscription-response-single","NAME":"BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE","index$":20}, {"active":true,"entity":"bill_subs_api_user_subscription_response_single","key$":"BasicBillSubsApiUserSubscriptionResponseSingleFlow","kind":"basic","name":"BasicBillSubsApiUserSubscriptionResponseSingleFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"bill_subs_api_user_subscription_response_single_ref01"},"m":{},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{"ref":"bill_subs_api_user_subscription_response_single_ref01","srcdatavar":"bill_subs_api_user_subscription_response_single_ref01_data","suffix":"_up0","textfield":"frequency"},"m":{},"o":"update","s":[{"apply":"TextFieldMark","def":{"mark":"Mark01-bill_subs_api_user_subscription_response_single_ref01"}}],"v":[],"index$":1}]}, 'BillSubsApiUserSubscriptionResponseSingle', {"POST /user/subscriptions":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"app":{"deprecated":true,"description":"Cloudflare Apps Marketplace is sunset. This field is retained for legacy grandfathered app subscriptions only.","properties":{"install_id":{"deprecated":true,"description":"app install id.","type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_install_id"}},"type":"object","key$":"app"},"component_values":{"description":"Configurable component values for the subscription.","items":{"description":"A component value for a subscription.","properties":{"default":{"description":"The default amount assigned.","example":5,"type":"number","x-auditable":true},"display_name":{"description":"A human-readable version of the component name.","example":"Page Rules","type":"string"},"kind":{"description":"The type of component value. \"enum\" for discrete values (including boolean on/off toggles where 0=off and 1=on), \"sum\" for countable quantities, \"usage\" for metered billing components.","enum":[],"example":"sum","type":"string"},"name":{"description":"The name of the component value.","example":"page_rules","type":"string","x-auditable":true},"price":{"description":"The unit price for the component value.","example":5,"type":"number","x-auditable":true},"value":{"description":"The amount of the component value assigned.","example":20,"type":"number","x-auditable":true}},"type":"object","x-ref":"#/components/schemas/bill-subs-api_component_value"},"type":"array","x-ref":"#/components/schemas/bill-subs-api_component_values","key$":"component_values"},"currency":{"description":"The monetary unit in which pricing information is displayed.","example":"USD","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_currency","key$":"currency"},"current_period_end":{"description":"The end of the current period and also when the next billing is due.","example":"2014-03-31T12:20:00Z","format":"date-time","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_current_period_end","key$":"current_period_end"},"current_period_start":{"description":"When the current billing period started. May match initial_period_start if this is the first period.","example":"2014-05-11T12:20:00Z","format":"date-time","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_current_period_start","key$":"current_period_start"},"frequency":{"description":"How often the subscription is renewed automatically.","enum":["weekly","monthly","quarterly","yearly"],"example":"monthly","type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_frequency","key$":"frequency"},"id":{"description":"Subscription identifier tag.","example":"506e3185e9c882d175a2d0cb0093d9f2","maxLength":32,"readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_schemas-identifier","key$":"id"},"price":{"description":"The price of the subscription that will be billed, in US dollars.","example":20,"readOnly":true,"type":"number","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_price","key$":"price"},"rate_plan":{"description":"The rate plan applied to the subscription.","properties":{"currency":{"description":"The currency applied to the rate plan subscription.","example":"USD","type":"string","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"externally_managed":{"description":"Whether this rate plan is managed externally from Cloudflare.","example":false,"type":"boolean","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"id":{"description":"The ID of the rate plan.","example":"free","type":"string","x-auditable":true},"is_contract":{"description":"Whether a rate plan is enterprise-based (or newly adopted term contract).","example":false,"type":"boolean","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"public_name":{"description":"The full name of the rate plan.","example":"Business Plan","type":"string","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"scope":{"description":"The scope that this rate plan applies to.","example":"zone","type":"string","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"sets":{"description":"The list of sets this rate plan applies to. Returns array of strings.","example":[],"items":{"type":"string","x-auditable":true},"type":"array","x-stainless-terraform-configurability":"optional"}},"type":"object","x-ref":"#/components/schemas/bill-subs-api_rate_plan","key$":"rate_plan"},"state":{"description":"The state that the subscription is in.","enum":["Trial","Provisioned","Paid","AwaitingPayment","Cancelled","Failed","Expired"],"example":"Paid","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_state","key$":"state"},"zone":{"description":"A simple zone object. May have null properties if not a zone subscription.","properties":{"id":{"description":"Identifier","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_identifier"},"name":{"description":"The domain name","example":"example.com","maxLength":253,"pattern":"^([a-zA-Z0-9][\\-a-zA-Z0-9]*\\.)+[\\-a-zA-Z0-9]{2,20}$","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_name"}},"type":"object","x-ref":"#/components/schemas/bill-subs-api_zone","key$":"zone"}},"x-ref":"#/components/schemas/bill-subs-api_subscription-v2","index$":1}}}},"parameters":[]},"PUT /user/subscriptions/{identifier}":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"app":{"deprecated":true,"description":"Cloudflare Apps Marketplace is sunset. This field is retained for legacy grandfathered app subscriptions only.","properties":{"install_id":{"deprecated":true,"description":"app install id.","type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_install_id"}},"type":"object","key$":"app"},"component_values":{"description":"Configurable component values for the subscription.","items":{"description":"A component value for a subscription.","properties":{"default":{"description":"The default amount assigned.","example":5,"type":"number","x-auditable":true},"display_name":{"description":"A human-readable version of the component name.","example":"Page Rules","type":"string"},"kind":{"description":"The type of component value. \"enum\" for discrete values (including boolean on/off toggles where 0=off and 1=on), \"sum\" for countable quantities, \"usage\" for metered billing components.","enum":[],"example":"sum","type":"string"},"name":{"description":"The name of the component value.","example":"page_rules","type":"string","x-auditable":true},"price":{"description":"The unit price for the component value.","example":5,"type":"number","x-auditable":true},"value":{"description":"The amount of the component value assigned.","example":20,"type":"number","x-auditable":true}},"type":"object","x-ref":"#/components/schemas/bill-subs-api_component_value"},"type":"array","x-ref":"#/components/schemas/bill-subs-api_component_values","key$":"component_values"},"currency":{"description":"The monetary unit in which pricing information is displayed.","example":"USD","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_currency","key$":"currency"},"current_period_end":{"description":"The end of the current period and also when the next billing is due.","example":"2014-03-31T12:20:00Z","format":"date-time","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_current_period_end","key$":"current_period_end"},"current_period_start":{"description":"When the current billing period started. May match initial_period_start if this is the first period.","example":"2014-05-11T12:20:00Z","format":"date-time","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_current_period_start","key$":"current_period_start"},"frequency":{"description":"How often the subscription is renewed automatically.","enum":["weekly","monthly","quarterly","yearly"],"example":"monthly","type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_frequency","key$":"frequency"},"id":{"description":"Subscription identifier tag.","example":"506e3185e9c882d175a2d0cb0093d9f2","maxLength":32,"readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_schemas-identifier","key$":"id"},"price":{"description":"The price of the subscription that will be billed, in US dollars.","example":20,"readOnly":true,"type":"number","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_price","key$":"price"},"rate_plan":{"description":"The rate plan applied to the subscription.","properties":{"currency":{"description":"The currency applied to the rate plan subscription.","example":"USD","type":"string","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"externally_managed":{"description":"Whether this rate plan is managed externally from Cloudflare.","example":false,"type":"boolean","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"id":{"description":"The ID of the rate plan.","example":"free","type":"string","x-auditable":true},"is_contract":{"description":"Whether a rate plan is enterprise-based (or newly adopted term contract).","example":false,"type":"boolean","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"public_name":{"description":"The full name of the rate plan.","example":"Business Plan","type":"string","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"scope":{"description":"The scope that this rate plan applies to.","example":"zone","type":"string","x-auditable":true,"x-stainless-terraform-configurability":"computed_optional"},"sets":{"description":"The list of sets this rate plan applies to. Returns array of strings.","example":[],"items":{"type":"string","x-auditable":true},"type":"array","x-stainless-terraform-configurability":"optional"}},"type":"object","x-ref":"#/components/schemas/bill-subs-api_rate_plan","key$":"rate_plan"},"state":{"description":"The state that the subscription is in.","enum":["Trial","Provisioned","Paid","AwaitingPayment","Cancelled","Failed","Expired"],"example":"Paid","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_state","key$":"state"},"zone":{"description":"A simple zone object. May have null properties if not a zone subscription.","properties":{"id":{"description":"Identifier","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_identifier"},"name":{"description":"The domain name","example":"example.com","maxLength":253,"pattern":"^([a-zA-Z0-9][\\-a-zA-Z0-9]*\\.)+[\\-a-zA-Z0-9]{2,20}$","readOnly":true,"type":"string","x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_name"}},"type":"object","x-ref":"#/components/schemas/bill-subs-api_zone","key$":"zone"}},"x-ref":"#/components/schemas/bill-subs-api_subscription-v2","index$":1}}}},"parameters":[{"name":"identifier","in":"path","required":true,"schema":{"description":"Subscription identifier tag.","type":"string","example":"506e3185e9c882d175a2d0cb0093d9f2","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/bill-subs-api_schemas-identifier"},"index$":0}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const bill_subs_api_user_subscription_response_single_ref01_ent = client.BillSubsApiUserSubscriptionResponseSingle()
+    let bill_subs_api_user_subscription_response_single_ref01_data = setup.data.new.bill_subs_api_user_subscription_response_single['bill_subs_api_user_subscription_response_single_ref01']
+
+    bill_subs_api_user_subscription_response_single_ref01_data = (await bill_subs_api_user_subscription_response_single_ref01_ent.create(bill_subs_api_user_subscription_response_single_ref01_data)).data()
+    assert(null != bill_subs_api_user_subscription_response_single_ref01_data.id)
+
+
+    // UPDATE
+    const bill_subs_api_user_subscription_response_single_ref01_data_up0: any = {}
+    bill_subs_api_user_subscription_response_single_ref01_data_up0.id = bill_subs_api_user_subscription_response_single_ref01_data.id
+
+    const bill_subs_api_user_subscription_response_single_ref01_markdef_up0 = { name: 'frequency', value: 'Mark01-bill_subs_api_user_subscription_response_single_ref01_' + setup.now }
+    ;(bill_subs_api_user_subscription_response_single_ref01_data_up0 as any)[bill_subs_api_user_subscription_response_single_ref01_markdef_up0.name] = bill_subs_api_user_subscription_response_single_ref01_markdef_up0.value
+
+    const bill_subs_api_user_subscription_response_single_ref01_resdata_up0 = (await bill_subs_api_user_subscription_response_single_ref01_ent.update(bill_subs_api_user_subscription_response_single_ref01_data_up0)).data()
+    assert(bill_subs_api_user_subscription_response_single_ref01_resdata_up0.id === bill_subs_api_user_subscription_response_single_ref01_data_up0.id)
+
+    assert((bill_subs_api_user_subscription_response_single_ref01_resdata_up0 as any)[bill_subs_api_user_subscription_response_single_ref01_markdef_up0.name] === bill_subs_api_user_subscription_response_single_ref01_markdef_up0.value)
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/bill_subs_api_user_subscription_response_single/BillSubsApiUserSubscriptionResponseSingleTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = CloudflareBillingSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['bill_subs_api_user_subscription_response_single01','bill_subs_api_user_subscription_response_single02','bill_subs_api_user_subscription_response_single03'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'CLOUDFLARE_BILLING_TEST_BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE_ENTID': idmap,
+    'CLOUDFLARE_BILLING_TEST_LIVE': 'FALSE',
+    'CLOUDFLARE_BILLING_TEST_EXPLAIN': 'FALSE',
+    'CLOUDFLARE_BILLING_APIKEY': '',
+  })
+
+  idmap = env['CLOUDFLARE_BILLING_TEST_BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE_ENTID']
+
+  const live = 'TRUE' === env.CLOUDFLARE_BILLING_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['CLOUDFLARE_BILLING_TEST_BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new CloudflareBillingSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.CLOUDFLARE_BILLING_APIKEY,
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.CLOUDFLARE_BILLING_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

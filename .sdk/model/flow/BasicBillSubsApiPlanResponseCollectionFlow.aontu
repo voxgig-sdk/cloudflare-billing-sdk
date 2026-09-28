@@ -1,0 +1,26 @@
+# BasicBillSubsApiPlanResponseCollectionFlow
+
+main: kit: flow: BasicBillSubsApiPlanResponseCollectionFlow:
+{
+  entity: "bill_subs_api_plan_response_collection",
+  kind: "basic",
+  name: "BasicBillSubsApiPlanResponseCollectionFlow",
+  step: [
+    {
+      m: {
+        zone_id: "zone01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "bill_subs_api_plan_response_collection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillSubsApiPlanResponseCollectionFlow"
+}

@@ -1,0 +1,124 @@
+# Entity: zone_subscription
+
+main: kit: entity: zone_subscription: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "zone_subscription"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /zones/{zone_id}/subscription"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/zones/{zone_id}/subscription"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              zone_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "subscription"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /zones/{zone_id}/subscriptions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/zones/{zone_id}/subscriptions"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              zone_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "subscriptions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

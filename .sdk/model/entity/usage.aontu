@@ -1,0 +1,149 @@
+# Entity: usage
+
+main: kit: entity: usage: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      sh: "List of errors, empty on success."
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: false
+      sh: "List of informational messages."
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      sh: "Array of billing usage data points for the requested time range."
+      t: "`$ARRAY`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      sh: "Whether the API call was successful."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "usage"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/billing/usage"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: ""
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "streamMinutesViewed"
+                k: "query"
+                n: "metric"
+                or: "metric"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2023-09-01T00:00:00Z"
+                k: "query"
+                n: "since"
+                or: "since"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "hour"
+                k: "query"
+                n: "time_delta"
+                or: "time_delta"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2023-09-01T06:00:00Z"
+                k: "query"
+                n: "until"
+                or: "until"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/billing/usage"
+          q: {
+            exist: [
+              "account_id"
+              "filter"
+              "limit"
+              "metric"
+              "since"
+              "time_delta"
+              "until"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "usage"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

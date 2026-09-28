@@ -1,0 +1,26 @@
+# BasicBillSubsApiPaymentMethodResponseCollectionFlow
+
+main: kit: flow: BasicBillSubsApiPaymentMethodResponseCollectionFlow:
+{
+  entity: "bill_subs_api_payment_method_response_collection",
+  kind: "basic",
+  name: "BasicBillSubsApiPaymentMethodResponseCollectionFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "bill_subs_api_payment_method_response_collection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillSubsApiPaymentMethodResponseCollectionFlow"
+}

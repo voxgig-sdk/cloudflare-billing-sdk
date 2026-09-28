@@ -1,0 +1,22 @@
+# BasicCancelDowngradeFlow
+
+main: kit: flow: BasicCancelDowngradeFlow:
+{
+  entity: "cancel_downgrade",
+  kind: "basic",
+  name: "BasicCancelDowngradeFlow",
+  step: [
+    {
+      i: {
+        ref: "cancel_downgrade_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicCancelDowngradeFlow"
+}

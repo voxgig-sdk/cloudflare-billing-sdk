@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Usage | Cloudflare Billing</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Billing<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-billing-sdk">voxgig-sdk/cloudflare-billing-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Billing</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account_billing.html">AccountBilling</a>
+<a href="../api/account_billing_profile.html">AccountBillingProfile</a>
+<a href="../api/account_subscription.html">AccountSubscription</a>
+<a href="../api/bill_subs_api_account_billing_history_collection.html">BillSubsApiAccountBillingHistoryCollection</a>
+<a href="../api/bill_subs_api_account_credit.html">BillSubsApiAccountCredit</a>
+<a href="../api/bill_subs_api_account_subscription_response_collection.html">BillSubsApiAccountSubscriptionResponseCollection</a>
+<a href="../api/bill_subs_api_account_subscription_response_single.html">BillSubsApiAccountSubscriptionResponseSingle</a>
+<a href="../api/bill_subs_api_address_validation_response_single.html">BillSubsApiAddressValidationResponseSingle</a>
+<a href="../api/bill_subs_api_bad_debt_response_single.html">BillSubsApiBadDebtResponseSingle</a>
+<a href="../api/bill_subs_api_billing_history_collection.html">BillSubsApiBillingHistoryCollection</a>
+<a href="../api/bill_subs_api_billing_response_single.html">BillSubsApiBillingResponseSingle</a>
+<a href="../api/bill_subs_api_cancel_reason_response_single.html">BillSubsApiCancelReasonResponseSingle</a>
+<a href="../api/bill_subs_api_client_secret_response_single.html">BillSubsApiClientSecretResponseSingle</a>
+<a href="../api/bill_subs_api_payment_intent_response_single.html">BillSubsApiPaymentIntentResponseSingle</a>
+<a href="../api/bill_subs_api_payment_method_response_collection.html">BillSubsApiPaymentMethodResponseCollection</a>
+<a href="../api/bill_subs_api_payment_method_response_single.html">BillSubsApiPaymentMethodResponseSingle</a>
+<a href="../api/bill_subs_api_plan_response_collection.html">BillSubsApiPlanResponseCollection</a>
+<a href="../api/bill_subs_api_rate_plan_simple.html">BillSubsApiRatePlanSimple</a>
+<a href="../api/bill_subs_api_unpaid_invoices_response_single.html">BillSubsApiUnpaidInvoicesResponseSingle</a>
+<a href="../api/bill_subs_api_user_subscription_response_collection.html">BillSubsApiUserSubscriptionResponseCollection</a>
+<a href="../api/bill_subs_api_user_subscription_response_single.html">BillSubsApiUserSubscriptionResponseSingle</a>
+<a href="../api/bill_subs_api_zone_subscription_response_single.html">BillSubsApiZoneSubscriptionResponseSingle</a>
+<a href="../api/billable_usage.html">BillableUsage</a>
+<a href="../api/billable_usage_api_usage_info.html">BillableUsageApiUsageInfo</a>
+<a href="../api/billable_usage_api_v2_account_billable_metric.html">BillableUsageApiV2AccountBillableMetric</a>
+<a href="../api/billable_usage_api_v2_usage.html">BillableUsageApiV2Usage</a>
+<a href="../api/cancel_downgrade.html">CancelDowngrade</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a href="../api/invoice.html">Invoice</a>
+<a href="../api/payment_method.html">PaymentMethod</a>
+<a href="../api/set_as_default.html">SetAsDefault</a>
+<a aria-current="page" href="../api/usage.html">Usage</a><div class="nav-sections"><a class="nav-section" href="#get-accountsaccount_idbillingusage">GET /accounts/{account_id}/billing/usage</a></div>
+<a href="../api/user_subscription.html">UserSubscription</a>
+<a href="../api/zone_rate_plan.html">ZoneRatePlan</a>
+<a href="../api/zone_subscription.html">ZoneSubscription</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="usage">Usage</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idbillingusage"><code>/accounts/{account_id}/billing/usage</code></a></td>
+<td><code>list</code></td>
+<td>Usage analytics response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">usages, err := client.Usage(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(usages)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local usages, err = client:Usage():list({ account_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$usages = $client-&gt;Usage()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">usages = client.Usage().list({&quot;account_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">usages = client.Usage.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const usages = await client.Usage().list({ account_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>List of errors, empty on success.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>List of informational messages.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Array of billing usage data points for the requested time range.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idbillingusage" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/billing/usage</h3>
+<p>Operation ID: <code>usage-analytics-get-account-billing-usage</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Standard Cloudflare hex account identifier. The API gateway translates this to an internal numeric ID before forwarding to the backend service. |
+| <code>metrics</code> | <code>query</code> | <code>string</code> | No | Comma-separated list of metrics to include in the response. Available metrics depend on the endpoint. Billing usage supports: streamMinutesViewed, rateLimitingRequestsAllowed, loadBalancingQueries, argoAcceleratedBytes, workersRequests, workersKVReads, imageResizingRequests, spectrumBytesTransferred, mediaUniqueTransformations. Stream/media usage supports: streamMinutesViewed. |
+| <code>since</code> | <code>query</code> | <code>string (date-time)</code> | No | Start of the time range for the query (inclusive). ISO 8601 timestamp. Defaults to 6 hours before the current time. |
+| <code>until</code> | <code>query</code> | <code>string (date-time)</code> | No | End of the time range for the query (inclusive). ISO 8601 timestamp. Defaults to the current time. |
+| <code>time_delta</code> | <code>query</code> | <code>enum: hour, day, week, month, quarter, year</code> | No | Time unit to aggregate usage observations into. Data retention is approximately 18 months. The effective number of data points returned depends on the time range and granularity selected. For example, requesting hourly granularity over 18 months could produce up to ~13,000 data points; use the limit parameter to cap results and be aware that responses may be truncated. |
+| <code>limit</code> | <code>query</code> | <code>integer</code> | No | Maximum number of data points to return. The actual number of results depends on the interaction between the time range (since/until) and <code>time_delta</code> granularity. Results are truncated to this limit without error if the time range produces more data points than the limit allows. |
+| <code>filters</code> | <code>query</code> | <code>string</code> | No | Filter expressions to apply to the query. Format: field==value. Multiple filters can be combined. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-usage-analytics-response" class="status" data-status="2xx">200: Usage analytics response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of errors, empty on success.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>List of informational messages.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Array of billing usage data points for the requested time range.</td>
+</tr>
+<tr>
+<td><code>result[].argoAcceleratedBytes</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Number of Argo accelerated bytes in this time period.</td>
+</tr>
+<tr>
+<td><code>result[].imageResizingRequests</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Number of Image Resizing requests in this time period.</td>
+</tr>
+<tr>
+<td><code>result[].loadBalancingQueries</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Number of Load Balancing DNS queries in this time period.</td>
+</tr>
+<tr>
+<td><code>result[].mediaUniqueTransformations</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Number of Media unique image transformations in this time period.</td>
+</tr>
+<tr>
+<td><code>result[].rateLimitingRequestsAllowed</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Number of Rate Limiting requests allowed in this time period.</td>
+</tr>
+<tr>
+<td><code>result[].spectrumBytesTransferred</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Number of Spectrum bytes transferred in this time period.</td>
+</tr>
+<tr>
+<td><code>result[].streamMinutesViewed</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Number of Stream billable minutes viewed in this time period.</td>
+</tr>
+<tr>
+<td><code>result[].ts</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Unix timestamp (epoch seconds) for the start of this time period.</td>
+</tr>
+<tr>
+<td><code>result[].workersKVReads</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Number of Workers KV reads in this time period.</td>
+</tr>
+<tr>
+<td><code>result[].workersRequests</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Number of Workers requests in this time period.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request---invalid-parameters-or-query" class="status" data-status="4xx">400: Bad request - invalid parameters or query</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of errors.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>List of informational messages.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Empty array or null on error.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-authentication-required" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of errors.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>List of informational messages.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Empty array or null on error.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-insufficient-permissions-to-access-this-resource" class="status" data-status="4xx">403: Insufficient permissions to access this resource</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of errors.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Error code.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>List of informational messages.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Message code.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Empty array or null on error.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

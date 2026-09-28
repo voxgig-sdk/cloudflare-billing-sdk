@@ -1,0 +1,116 @@
+# Entity: set_as_default
+
+main: kit: entity: set_as_default: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      op: {
+        create: {
+          req: false
+          type: "`$ANY`"
+        }
+      }
+      r: true
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 0
+      }
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      sh: "Whether the API call was successful"
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "set_as_default"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/payment-methods/{payment_method_id}/set-as-default"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "payment_method_id"
+                or: "payment_method_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/payment-methods/{payment_method_id}/set-as-default"
+          q: {
+            exist: [
+              "account_id"
+              "payment_method_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "payment-methods"
+            }
+            {
+              var: "payment_method_id"
+            }
+            {
+              lit: "set-as-default"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.payment_method")]
+  ]
+
+}

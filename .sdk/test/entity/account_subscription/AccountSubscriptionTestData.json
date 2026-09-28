@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "account_subscription": {
+      "ACCOUNT_SUBSCRIPTION00": {
+        "id": "ACCOUNT_SUBSCRIPTION00",
+        "account_id": "ACCOUNT01"
+      },
+      "ACCOUNT_SUBSCRIPTION01": {
+        "id": "ACCOUNT_SUBSCRIPTION01",
+        "account_id": "ACCOUNT01"
+      },
+      "ACCOUNT_SUBSCRIPTION02": {
+        "id": "ACCOUNT_SUBSCRIPTION02",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "account_subscription": {
+      "account_subscription_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/subscriptions/{subscription_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

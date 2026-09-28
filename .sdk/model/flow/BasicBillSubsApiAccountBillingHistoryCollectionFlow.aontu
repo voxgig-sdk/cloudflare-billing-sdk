@@ -1,0 +1,26 @@
+# BasicBillSubsApiAccountBillingHistoryCollectionFlow
+
+main: kit: flow: BasicBillSubsApiAccountBillingHistoryCollectionFlow:
+{
+  entity: "bill_subs_api_account_billing_history_collection",
+  kind: "basic",
+  name: "BasicBillSubsApiAccountBillingHistoryCollectionFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "bill_subs_api_account_billing_history_collection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillSubsApiAccountBillingHistoryCollectionFlow"
+}

@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "bill_subs_api_address_validation_response_single": {
+      "BILL_SUBS_API_ADDRESS_VALIDATION_RESPONSE_SINGLE00": {
+        "address": "s3c",
+        "address2": "s3d",
+        "city": "s3e",
+        "country": "s3f",
+        "state": "s40",
+        "zipcode": "s41",
+        "id": "BILL_SUBS_API_ADDRESS_VALIDATION_RESPONSE_SINGLE00"
+      },
+      "BILL_SUBS_API_ADDRESS_VALIDATION_RESPONSE_SINGLE01": {
+        "address": "s78",
+        "address2": "s79",
+        "city": "s7a",
+        "country": "s7b",
+        "state": "s7c",
+        "zipcode": "s7d",
+        "id": "BILL_SUBS_API_ADDRESS_VALIDATION_RESPONSE_SINGLE01"
+      },
+      "BILL_SUBS_API_ADDRESS_VALIDATION_RESPONSE_SINGLE02": {
+        "address": "sb4",
+        "address2": "sb5",
+        "city": "sb6",
+        "country": "sb7",
+        "state": "sb8",
+        "zipcode": "sb9",
+        "id": "BILL_SUBS_API_ADDRESS_VALIDATION_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_address_validation_response_single": {
+      "bill_subs_api_address_validation_response_single_ref01": {
+        "address": "sf0",
+        "address2": "sf1",
+        "city": "sf2",
+        "country": "sf3",
+        "state": "sf4",
+        "zipcode": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /billing/address-validation": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

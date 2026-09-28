@@ -1,0 +1,112 @@
+# Entity: billable_usage_api_v2_account_billable_metric
+
+main: kit: entity: billable_usage_api_v2_account_billable_metric: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$ARRAY`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "billable_usage_api_v2_account_billable_metric"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/billable/usage/billable-metrics"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "2025-05-01"
+                k: "query"
+                n: "from"
+                or: "from"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2025-05-31"
+                k: "query"
+                n: "to"
+                or: "to"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/billable/usage/billable-metrics"
+          q: {
+            exist: [
+              "account_id"
+              "from"
+              "to"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "billable"
+            }
+            {
+              lit: "usage"
+            }
+            {
+              lit: "billable-metrics"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

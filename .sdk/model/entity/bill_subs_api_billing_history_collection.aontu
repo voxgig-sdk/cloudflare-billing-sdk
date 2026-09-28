@@ -1,0 +1,113 @@
+# Entity: bill_subs_api_billing_history_collection
+
+main: kit: entity: bill_subs_api_billing_history_collection: {
+
+  alias: field: {}
+
+  fields: {
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "bill_subs_api_billing_history_collection"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /user/billing/history"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "subscription"
+                k: "query"
+                n: "action"
+                or: "action"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2014-03-01T12:21:59.3456Z"
+                k: "query"
+                n: "occurred_at"
+                or: "occurred_at"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "occurred_at"
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: "charge"
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/user/billing/history"
+          q: {
+            exist: [
+              "action"
+              "occurred_at"
+              "order"
+              "page"
+              "per_page"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "history"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

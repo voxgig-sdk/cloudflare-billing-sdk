@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BillableUsageApiV2Usage | Cloudflare Billing</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Billing<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-billing-sdk">voxgig-sdk/cloudflare-billing-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Billing</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account_billing.html">AccountBilling</a>
+<a href="../api/account_billing_profile.html">AccountBillingProfile</a>
+<a href="../api/account_subscription.html">AccountSubscription</a>
+<a href="../api/bill_subs_api_account_billing_history_collection.html">BillSubsApiAccountBillingHistoryCollection</a>
+<a href="../api/bill_subs_api_account_credit.html">BillSubsApiAccountCredit</a>
+<a href="../api/bill_subs_api_account_subscription_response_collection.html">BillSubsApiAccountSubscriptionResponseCollection</a>
+<a href="../api/bill_subs_api_account_subscription_response_single.html">BillSubsApiAccountSubscriptionResponseSingle</a>
+<a href="../api/bill_subs_api_address_validation_response_single.html">BillSubsApiAddressValidationResponseSingle</a>
+<a href="../api/bill_subs_api_bad_debt_response_single.html">BillSubsApiBadDebtResponseSingle</a>
+<a href="../api/bill_subs_api_billing_history_collection.html">BillSubsApiBillingHistoryCollection</a>
+<a href="../api/bill_subs_api_billing_response_single.html">BillSubsApiBillingResponseSingle</a>
+<a href="../api/bill_subs_api_cancel_reason_response_single.html">BillSubsApiCancelReasonResponseSingle</a>
+<a href="../api/bill_subs_api_client_secret_response_single.html">BillSubsApiClientSecretResponseSingle</a>
+<a href="../api/bill_subs_api_payment_intent_response_single.html">BillSubsApiPaymentIntentResponseSingle</a>
+<a href="../api/bill_subs_api_payment_method_response_collection.html">BillSubsApiPaymentMethodResponseCollection</a>
+<a href="../api/bill_subs_api_payment_method_response_single.html">BillSubsApiPaymentMethodResponseSingle</a>
+<a href="../api/bill_subs_api_plan_response_collection.html">BillSubsApiPlanResponseCollection</a>
+<a href="../api/bill_subs_api_rate_plan_simple.html">BillSubsApiRatePlanSimple</a>
+<a href="../api/bill_subs_api_unpaid_invoices_response_single.html">BillSubsApiUnpaidInvoicesResponseSingle</a>
+<a href="../api/bill_subs_api_user_subscription_response_collection.html">BillSubsApiUserSubscriptionResponseCollection</a>
+<a href="../api/bill_subs_api_user_subscription_response_single.html">BillSubsApiUserSubscriptionResponseSingle</a>
+<a href="../api/bill_subs_api_zone_subscription_response_single.html">BillSubsApiZoneSubscriptionResponseSingle</a>
+<a href="../api/billable_usage.html">BillableUsage</a>
+<a href="../api/billable_usage_api_usage_info.html">BillableUsageApiUsageInfo</a>
+<a href="../api/billable_usage_api_v2_account_billable_metric.html">BillableUsageApiV2AccountBillableMetric</a>
+<a aria-current="page" href="../api/billable_usage_api_v2_usage.html">BillableUsageApiV2Usage</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idbillableusage">POST /accounts/{account_id}/billable/usage</a>
+<a class="nav-section" href="#get-accountsaccount_idbillableusage">GET /accounts/{account_id}/billable/usage</a></div>
+<a href="../api/cancel_downgrade.html">CancelDowngrade</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a href="../api/invoice.html">Invoice</a>
+<a href="../api/payment_method.html">PaymentMethod</a>
+<a href="../api/set_as_default.html">SetAsDefault</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/user_subscription.html">UserSubscription</a>
+<a href="../api/zone_rate_plan.html">ZoneRatePlan</a>
+<a href="../api/zone_subscription.html">ZoneSubscription</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="billableusageapiv2usage">BillableUsageApiV2Usage</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idbillableusage"><code>/accounts/{account_id}/billable/usage</code></a></td>
+<td><code>create</code></td>
+<td>Account usage data was successfully retrieved</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idbillableusage"><code>/accounts/{account_id}/billable/usage</code></a></td>
+<td><code>list</code></td>
+<td>Account usage data was successfully retrieved</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">billable_usage_api_v2_usages, err := client.BillableUsageApiV2Usage(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(billable_usage_api_v2_usages)
+created, err := client.BillableUsageApiV2Usage(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;messages&quot;: []any{}, &quot;result&quot;: []any{}, &quot;success&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local billable_usage_api_v2_usages, err = client:BillableUsageApiV2Usage():list({ account_id = &quot;example&quot; })
+local created, err = client:BillableUsageApiV2Usage():create({ account_id = &quot;example&quot;, errors = {}, messages = {}, result = {}, success = true })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$billable_usage_api_v2_usages = $client-&gt;BillableUsageApiV2Usage()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;BillableUsageApiV2Usage()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; [], &quot;success&quot; =&gt; true]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">billable_usage_api_v2_usages = client.BillableUsageApiV2Usage().list({&quot;account_id&quot;: &quot;example&quot;})
+created = client.BillableUsageApiV2Usage().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;messages&quot;: [], &quot;result&quot;: [], &quot;success&quot;: True })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">billable_usage_api_v2_usages = client.BillableUsageApiV2Usage.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+created = client.BillableUsageApiV2Usage.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; [], &quot;success&quot; =&gt; true })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const billable_usage_api_v2_usages = await client.BillableUsageApiV2Usage().list({ account_id: &quot;example&quot; })
+const created = await client.BillableUsageApiV2Usage().create({ account_id: &quot;example&quot;, errors: [], messages: [], result: [], success: true })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FilterBy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Usage filters.</td>
+</tr>
+<tr>
+<td><code>GroupBy</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Grouping definitions used to split result rows.</td>
+</tr>
+<tr>
+<td><code>TimePeriod</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Charge period to query, that is</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Contains error details if the request failed.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Contains informational notices about the response.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Contains the array of cost and usage records.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idbillableusage" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/billable/usage</h3>
+<p>Operation ID: <code>billable-usage-v2-query-account-usage</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Identifies the Cloudflare account. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FilterBy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Usage filters. Filters of different kinds are combined with AND, so a record must match every filter present to be returned.</td>
+</tr>
+<tr>
+<td><code>FilterBy.MetricIds</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Restrict results to rows whose <code>x_BillableMetricId</code> matches one of these billable metric ids (for example <code>workers_standard_requests</code>). Values must be unique.</td>
+</tr>
+<tr>
+<td><code>FilterBy.ProductFamilyIds</code></td>
+<td><code>array of string (uuid)</code></td>
+<td>No</td>
+<td>Restrict results to billable metrics belonging to these product families. Values must be unique UUIDs.</td>
+</tr>
+<tr>
+<td><code>FilterBy.Tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Restrict results by resource tags. Filters for different keys are combined with AND, while values within one filter are combined with OR. Keys must be unique and are case-sensitive.</td>
+</tr>
+<tr>
+<td><code>FilterBy.Tags[].Key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Case-sensitive resource-tag key.</td>
+</tr>
+<tr>
+<td><code>FilterBy.Tags[].Values</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Tag values to match. Values are combined with OR and must be unique. An empty string matches a key-only tag.</td>
+</tr>
+<tr>
+<td><code>GroupBy</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Grouping definitions used to split result rows. At most two unique keys may be supplied.</td>
+</tr>
+<tr>
+<td><code>GroupBy[].Key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Case-sensitive resource-tag key (for TAG) or dimension key (for DIMENSION), for example team, region, <code>account_id</code> or <code>zone_id</code>.</td>
+</tr>
+<tr>
+<td><code>GroupBy[].Type</code></td>
+<td><code>enum: TAG, DIMENSION</code></td>
+<td>Yes</td>
+<td>Group category.</td>
+</tr>
+<tr>
+<td><code>TimePeriod</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Charge period to query, that is when consumption happened, not when it was billed. <code>From</code> is inclusive and <code>To</code> is exclusive. <code>From</code> and <code>To</code> must be supplied together; supplying one without the other is an error. When both are omitted the range defaults to the start of the current month through today.</td>
+</tr>
+<tr>
+<td><code>TimePeriod.From</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Start of the range (ISO 8601). Required if <code>To</code> is set.</td>
+</tr>
+<tr>
+<td><code>TimePeriod.To</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>End of the range (ISO 8601). Required if <code>From</code> is set. Must be after <code>From</code> and no more than 31 days after it.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-account-usage-data-was-successfully-retrieved" class="status" data-status="2xx">200: Account usage data was successfully retrieved</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains error details if the request failed.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Identifies the error or notice type.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Describes the error or notice.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains informational notices about the response.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Identifies the error or notice type.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Describes the error or notice.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains the array of cost and usage records.</td>
+</tr>
+<tr>
+<td><code>result[].BilledCost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>A charge serving as the basis for invoicing, inclusive of all reduced rates and discounts while excluding the amortization of upfront charges (one-time or recurring).</td>
+</tr>
+<tr>
+<td><code>result[].BillingAccountId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Public identifier of the Cloudflare account (account tag). Omitted when account is not part of the requested grouping.</td>
+</tr>
+<tr>
+<td><code>result[].BillingAccountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Display name of the Cloudflare account. Omitted when account is not part of the requested grouping.</td>
+</tr>
+<tr>
+<td><code>result[].BillingCurrency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Currency that a charge was billed in (ISO 4217).</td>
+</tr>
+<tr>
+<td><code>result[].BillingPeriodEnd</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Exclusive end of the billing cycle that contains this usage record.</td>
+</tr>
+<tr>
+<td><code>result[].BillingPeriodStart</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Inclusive start of the billing cycle that contains this usage record.</td>
+</tr>
+<tr>
+<td><code>result[].ChargeCategory</code></td>
+<td><code>enum: Usage</code></td>
+<td>Yes</td>
+<td>Highest-level classification of a charge based on the nature of how it gets billed. Currently only &quot;Usage&quot; is supported.</td>
+</tr>
+<tr>
+<td><code>result[].ChargeClass</code></td>
+<td><code>enum: Correction</code></td>
+<td>No</td>
+<td>Indicates whether the row represents a correction to one or more charges invoiced in a previous billing period.</td>
+</tr>
+<tr>
+<td><code>result[].ChargeDescription</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Self-contained summary of the charge's purpose and price.</td>
+</tr>
+<tr>
+<td><code>result[].ChargeFrequency</code></td>
+<td><code>enum: Usage-Based</code></td>
+<td>Yes</td>
+<td>Indicates how often a charge occurs. Currently only &quot;Usage-Based&quot; is supported.</td>
+</tr>
+<tr>
+<td><code>result[].ChargePeriodEnd</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Exclusive end of the time interval during which the usage was consumed.</td>
+</tr>
+<tr>
+<td><code>result[].ChargePeriodStart</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Inclusive start of the time interval during which the usage was consumed.</td>
+</tr>
+<tr>
+<td><code>result[].ConsumedQuantity</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Measured usage amount within the charge period. Reflects raw metered consumption before pricing transformations.</td>
+</tr>
+<tr>
+<td><code>result[].ConsumedUnit</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unit of measure for the consumed quantity (for example, &quot;GB&quot;, &quot;Requests&quot;, &quot;vCPU-Hours&quot;).</td>
+</tr>
+<tr>
+<td><code>result[].ContractedCost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Cost calculated by multiplying ContractedUnitPrice and the corresponding PricingQuantity.</td>
+</tr>
+<tr>
+<td><code>result[].ContractedUnitPrice</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The agreed-upon unit price for a single PricingUnit of the associated billable metric, inclusive of negotiated discounts, if present, while excluding any other discounts.</td>
+</tr>
+<tr>
+<td><code>result[].EffectiveCost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The amortized cost of the charge after applying all reduced rates, discounts, and the applicable portion of relevant, prepaid purchases (one-time or recurring) that covered the charge.</td>
+</tr>
+<tr>
+<td><code>result[].HostProviderName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of the entity providing the underlying infrastructure or platform.</td>
+</tr>
+<tr>
+<td><code>result[].InvoiceIssuerName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of the entity responsible for invoicing for the services consumed.</td>
+</tr>
+<tr>
+<td><code>result[].ListCost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Cost calculated by multiplying ListUnitPrice and the corresponding PricingQuantity.</td>
+</tr>
+<tr>
+<td><code>result[].ListUnitPrice</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Suggested provider-published unit price for a single PricingUnit of the associated billable metric, exclusive of any discounts.</td>
+</tr>
+<tr>
+<td><code>result[].PricingQuantity</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Volume of a given service used or purchased, based on the PricingUnit.</td>
+</tr>
+<tr>
+<td><code>result[].PricingUnit</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Provider-specified measurement unit for determining unit prices, indicating how the provider rates measured usage after applying pricing rules like block pricing.</td>
+</tr>
+<tr>
+<td><code>result[].RegionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Provider-assigned identifier for an isolated geographic area where a service is provided.</td>
+</tr>
+<tr>
+<td><code>result[].RegionName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name of an isolated geographic area where a service is provided.</td>
+</tr>
+<tr>
+<td><code>result[].ServiceProviderName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of the entity that made the services available for purchase.</td>
+</tr>
+<tr>
+<td><code>result[].SubAccountId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier assigned to a grouping of services. For Cloudflare, this is the subscription or contract ID.</td>
+</tr>
+<tr>
+<td><code>result[].SubAccountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name assigned to a grouping of services. For Cloudflare, this is the subscription or contract display name.</td>
+</tr>
+<tr>
+<td><code>result[].Tags</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Tag values for the requested <code>GroupBy</code> keys. Omitted when <code>GroupBy</code> is not provided. Missing keys are omitted, and key-only tags are returned as boolean <code>true</code>. All other tag values are strings.</td>
+</tr>
+<tr>
+<td><code>result[].x_BillableMetricId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The unique identifier for the billable metric in the Cloudflare catalog. Cloudflare extension; replaces FOCUS SkuId.</td>
+</tr>
+<tr>
+<td><code>result[].x_BillableMetricName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The display name of the billable metric. Cloudflare extension; replaces FOCUS SkuMeter.</td>
+</tr>
+<tr>
+<td><code>result[].x_ProductCategoryName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product category the charge belongs to (for example, &quot;Developer&quot;, &quot;Cloudflare One&quot;). Cloudflare extension; replaces FOCUS ServiceCategory.</td>
+</tr>
+<tr>
+<td><code>result[].x_ProductFamilyId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique identifier for the product family in the Cloudflare catalog. Cloudflare extension; replaces FOCUS ServiceId.</td>
+</tr>
+<tr>
+<td><code>result[].x_ProductFamilyName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product family the charge belongs to (for example, &quot;R2&quot;, &quot;Workers&quot;). Cloudflare extension; replaces FOCUS ServiceName.</td>
+</tr>
+<tr>
+<td><code>result[].x_ZoneId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The identifier for the Cloudflare zone (zone tag). Cloudflare extension.</td>
+</tr>
+<tr>
+<td><code>result[].x_ZoneName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The display name of the Cloudflare zone. Cloudflare extension.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-the-request-failed">4XX: Indicates the request failed</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains error details describing why the request failed.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Identifies the error or notice type.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Describes the error or notice.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains informational notices about the response.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Identifies the error or notice type.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Describes the error or notice.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Contains the response payload (always null on failure).</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idbillableusage" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/billable/usage</h3>
+<p>Operation ID: <code>billable-usage-v2-get-account-usage</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Identifies the Cloudflare account. |
+| <code>from</code> | <code>query</code> | <code>string (date)</code> | No | Start date for the usage query (ISO 8601). Required if <code>to</code> is set. When omitted along with <code>to</code>, defaults to the start of the current month. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days. |
+| <code>to</code> | <code>query</code> | <code>string (date)</code> | No | End date for the usage query (ISO 8601). Required if <code>from</code> is set. When omitted along with <code>from</code>, defaults to today. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-account-usage-data-was-successfully-retrieved-1" class="status" data-status="2xx">200: Account usage data was successfully retrieved</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains error details if the request failed.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Identifies the error or notice type.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Describes the error or notice.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains informational notices about the response.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Identifies the error or notice type.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Describes the error or notice.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains the array of cost and usage records.</td>
+</tr>
+<tr>
+<td><code>result[].BilledCost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>A charge serving as the basis for invoicing, inclusive of all reduced rates and discounts while excluding the amortization of upfront charges (one-time or recurring).</td>
+</tr>
+<tr>
+<td><code>result[].BillingAccountId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Public identifier of the Cloudflare account (account tag). Omitted when account is not part of the requested grouping.</td>
+</tr>
+<tr>
+<td><code>result[].BillingAccountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Display name of the Cloudflare account. Omitted when account is not part of the requested grouping.</td>
+</tr>
+<tr>
+<td><code>result[].BillingCurrency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Currency that a charge was billed in (ISO 4217).</td>
+</tr>
+<tr>
+<td><code>result[].BillingPeriodEnd</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Exclusive end of the billing cycle that contains this usage record.</td>
+</tr>
+<tr>
+<td><code>result[].BillingPeriodStart</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Inclusive start of the billing cycle that contains this usage record.</td>
+</tr>
+<tr>
+<td><code>result[].ChargeCategory</code></td>
+<td><code>enum: Usage</code></td>
+<td>Yes</td>
+<td>Highest-level classification of a charge based on the nature of how it gets billed. Currently only &quot;Usage&quot; is supported.</td>
+</tr>
+<tr>
+<td><code>result[].ChargeClass</code></td>
+<td><code>enum: Correction</code></td>
+<td>No</td>
+<td>Indicates whether the row represents a correction to one or more charges invoiced in a previous billing period.</td>
+</tr>
+<tr>
+<td><code>result[].ChargeDescription</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Self-contained summary of the charge's purpose and price.</td>
+</tr>
+<tr>
+<td><code>result[].ChargeFrequency</code></td>
+<td><code>enum: Usage-Based</code></td>
+<td>Yes</td>
+<td>Indicates how often a charge occurs. Currently only &quot;Usage-Based&quot; is supported.</td>
+</tr>
+<tr>
+<td><code>result[].ChargePeriodEnd</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Exclusive end of the time interval during which the usage was consumed.</td>
+</tr>
+<tr>
+<td><code>result[].ChargePeriodStart</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Inclusive start of the time interval during which the usage was consumed.</td>
+</tr>
+<tr>
+<td><code>result[].ConsumedQuantity</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Measured usage amount within the charge period. Reflects raw metered consumption before pricing transformations.</td>
+</tr>
+<tr>
+<td><code>result[].ConsumedUnit</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unit of measure for the consumed quantity (for example, &quot;GB&quot;, &quot;Requests&quot;, &quot;vCPU-Hours&quot;).</td>
+</tr>
+<tr>
+<td><code>result[].ContractedCost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Cost calculated by multiplying ContractedUnitPrice and the corresponding PricingQuantity.</td>
+</tr>
+<tr>
+<td><code>result[].ContractedUnitPrice</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The agreed-upon unit price for a single PricingUnit of the associated billable metric, inclusive of negotiated discounts, if present, while excluding any other discounts.</td>
+</tr>
+<tr>
+<td><code>result[].EffectiveCost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The amortized cost of the charge after applying all reduced rates, discounts, and the applicable portion of relevant, prepaid purchases (one-time or recurring) that covered the charge.</td>
+</tr>
+<tr>
+<td><code>result[].HostProviderName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of the entity providing the underlying infrastructure or platform.</td>
+</tr>
+<tr>
+<td><code>result[].InvoiceIssuerName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of the entity responsible for invoicing for the services consumed.</td>
+</tr>
+<tr>
+<td><code>result[].ListCost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Cost calculated by multiplying ListUnitPrice and the corresponding PricingQuantity.</td>
+</tr>
+<tr>
+<td><code>result[].ListUnitPrice</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Suggested provider-published unit price for a single PricingUnit of the associated billable metric, exclusive of any discounts.</td>
+</tr>
+<tr>
+<td><code>result[].PricingQuantity</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Volume of a given service used or purchased, based on the PricingUnit.</td>
+</tr>
+<tr>
+<td><code>result[].PricingUnit</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Provider-specified measurement unit for determining unit prices, indicating how the provider rates measured usage after applying pricing rules like block pricing.</td>
+</tr>
+<tr>
+<td><code>result[].RegionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Provider-assigned identifier for an isolated geographic area where a service is provided.</td>
+</tr>
+<tr>
+<td><code>result[].RegionName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name of an isolated geographic area where a service is provided.</td>
+</tr>
+<tr>
+<td><code>result[].ServiceProviderName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of the entity that made the services available for purchase.</td>
+</tr>
+<tr>
+<td><code>result[].SubAccountId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier assigned to a grouping of services. For Cloudflare, this is the subscription or contract ID.</td>
+</tr>
+<tr>
+<td><code>result[].SubAccountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name assigned to a grouping of services. For Cloudflare, this is the subscription or contract display name.</td>
+</tr>
+<tr>
+<td><code>result[].Tags</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Tag values for the requested <code>GroupBy</code> keys. Omitted when <code>GroupBy</code> is not provided. Missing keys are omitted, and key-only tags are returned as boolean <code>true</code>. All other tag values are strings.</td>
+</tr>
+<tr>
+<td><code>result[].x_BillableMetricId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The unique identifier for the billable metric in the Cloudflare catalog. Cloudflare extension; replaces FOCUS SkuId.</td>
+</tr>
+<tr>
+<td><code>result[].x_BillableMetricName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The display name of the billable metric. Cloudflare extension; replaces FOCUS SkuMeter.</td>
+</tr>
+<tr>
+<td><code>result[].x_ProductCategoryName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product category the charge belongs to (for example, &quot;Developer&quot;, &quot;Cloudflare One&quot;). Cloudflare extension; replaces FOCUS ServiceCategory.</td>
+</tr>
+<tr>
+<td><code>result[].x_ProductFamilyId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique identifier for the product family in the Cloudflare catalog. Cloudflare extension; replaces FOCUS ServiceId.</td>
+</tr>
+<tr>
+<td><code>result[].x_ProductFamilyName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product family the charge belongs to (for example, &quot;R2&quot;, &quot;Workers&quot;). Cloudflare extension; replaces FOCUS ServiceName.</td>
+</tr>
+<tr>
+<td><code>result[].x_ZoneId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The identifier for the Cloudflare zone (zone tag). Cloudflare extension.</td>
+</tr>
+<tr>
+<td><code>result[].x_ZoneName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The display name of the Cloudflare zone. Cloudflare extension.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-the-request-failed-1">4XX: Indicates the request failed</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains error details describing why the request failed.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Identifies the error or notice type.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Describes the error or notice.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Contains informational notices about the response.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Identifies the error or notice type.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Describes the error or notice.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Contains the response payload (always null on failure).</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

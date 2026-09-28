@@ -1,0 +1,373 @@
+# Entity: bill_subs_api_payment_method_response_single
+
+main: kit: entity: bill_subs_api_payment_method_response_single: {
+
+  alias: field: {}
+
+  fields: {
+    address: {
+      h: "Address"
+      n: "address"
+      r: false
+      sh: "Billing address line 1."
+      t: "`$STRING`"
+    }
+    address2: {
+      h: "Address2"
+      n: "address2"
+      r: false
+      sh: "Billing address line 2."
+      t: "`$STRING`"
+    }
+    bank_account_type: {
+      h: "Bank Account Type"
+      n: "bank_account_type"
+      r: false
+      sh: "Bank account type."
+      t: "`$STRING`"
+    }
+    bank_code: {
+      h: "Bank Code"
+      n: "bank_code"
+      r: false
+      sh: "Bank code."
+      t: "`$STRING`"
+    }
+    bank_country: {
+      h: "Bank Country"
+      n: "bank_country"
+      r: false
+      sh: "Bank country."
+      t: "`$STRING`"
+    }
+    bank_name: {
+      h: "Bank Name"
+      n: "bank_name"
+      r: false
+      sh: "Bank name for bank-based payment methods."
+      t: "`$STRING`"
+    }
+    bank_routing_number: {
+      h: "Bank Routing Number"
+      n: "bank_routing_number"
+      r: false
+      sh: "Bank routing number."
+      t: "`$STRING`"
+    }
+    cashapp_cash_tag: {
+      h: "Cashapp Cash Tag"
+      n: "cashapp_cash_tag"
+      r: false
+      sh: "Cash App cash tag."
+      t: "`$STRING`"
+    }
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      sh: "Billing city."
+      t: "`$STRING`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      sh: "Billing country."
+      t: "`$STRING`"
+    }
+    default: {
+      h: "Default"
+      n: "default"
+      r: false
+      sh: "Whether this is the default payment method."
+      t: "`$BOOLEAN`"
+    }
+    device_data: {
+      h: "Device Data"
+      n: "device_data"
+      r: false
+      sh: "Device data for fraud prevention."
+      t: "`$STRING`"
+      wo: true
+    }
+    expiration_date: {
+      h: "Expiration Date"
+      n: "expiration_date"
+      r: false
+      ro: true
+      sh: "Card expiration date."
+      t: "`$STRING`"
+    }
+    first_name: {
+      h: "First Name"
+      n: "first_name"
+      r: false
+      sh: "Billing first name."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      ro: true
+      sh: "Payment method identifier."
+      t: "`$STRING`"
+    }
+    last_four: {
+      h: "Last Four"
+      n: "last_four"
+      r: false
+      ro: true
+      sh: "Last four digits of the card number."
+      t: "`$STRING`"
+    }
+    last_name: {
+      h: "Last Name"
+      n: "last_name"
+      r: false
+      sh: "Billing last name."
+      t: "`$STRING`"
+    }
+    nick_name: {
+      h: "Nick Name"
+      n: "nick_name"
+      r: false
+      sh: "A nickname for the payment method."
+      t: "`$STRING`"
+    }
+    payment_account_email: {
+      h: "Payment Account Email"
+      n: "payment_account_email"
+      r: false
+      sh: "Email associated with the payment account."
+      t: "`$STRING`"
+    }
+    payment_email: {
+      h: "Payment Email"
+      n: "payment_email"
+      r: false
+      sh: "Payment email address."
+      t: "`$STRING`"
+    }
+    payment_gateway: {
+      h: "Payment Gateway"
+      n: "payment_gateway"
+      r: false
+      sh: "The payment gateway used."
+      t: "`$STRING`"
+      wo: true
+    }
+    payment_nonce: {
+      h: "Payment Nonce"
+      n: "payment_nonce"
+      r: false
+      sh: "Payment nonce for tokenized payments."
+      t: "`$STRING`"
+      wo: true
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$OBJECT`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      sh: "Billing state."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "The payment method type."
+      t: "`$STRING`"
+    }
+    zipcode: {
+      h: "Zipcode"
+      n: "zipcode"
+      r: false
+      sh: "Billing zip code."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "bill_subs_api_payment_method_response_single"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/payment-methods"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/payment-methods"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "payment-methods"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/payment-methods/{payment_method_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "payment_method_id"
+                or: "payment_method_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/payment-methods/{payment_method_id}"
+          q: {
+            exist: [
+              "account_id"
+              "payment_method_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "payment-methods"
+            }
+            {
+              var: "payment_method_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/payment-methods/{payment_method_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "payment_method_id"
+                or: "payment_method_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/payment-methods/{payment_method_id}"
+          q: {
+            exist: [
+              "account_id"
+              "payment_method_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "payment-methods"
+            }
+            {
+              var: "payment_method_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.payment_method")]
+  ]
+
+}

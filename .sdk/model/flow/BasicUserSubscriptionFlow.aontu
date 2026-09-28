@@ -1,0 +1,9 @@
+# BasicUserSubscriptionFlow
+
+main: kit: flow: BasicUserSubscriptionFlow:
+{
+  entity: "user_subscription",
+  kind: "basic",
+  name: "BasicUserSubscriptionFlow",
+  "key$": "BasicUserSubscriptionFlow"
+}

@@ -1,0 +1,339 @@
+# Entity: bill_subs_api_account_subscription_response_single
+
+main: kit: entity: bill_subs_api_account_subscription_response_single: {
+
+  alias: field: {}
+
+  fields: {
+    app: {
+      de: true
+      h: "App"
+      n: "app"
+      r: false
+      sh: "Cloudflare Apps Marketplace is sunset."
+      t: "`$OBJECT`"
+    }
+    component_values: {
+      h: "Component Values"
+      n: "component_values"
+      r: false
+      sh: "Configurable component values for the subscription."
+      t: "`$ARRAY`"
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: false
+      ro: true
+      sh: "The monetary unit in which pricing information is displayed."
+      t: "`$STRING`"
+    }
+    current_period_end: {
+      fo: "date-time"
+      h: "Current Period End"
+      n: "current_period_end"
+      r: false
+      ro: true
+      sh: "The end of the current period and also when the next billing is due."
+      t: "`$STRING`"
+    }
+    current_period_start: {
+      fo: "date-time"
+      h: "Current Period Start"
+      n: "current_period_start"
+      r: false
+      ro: true
+      sh: "When the current billing period started."
+      t: "`$STRING`"
+    }
+    frequency: {
+      h: "Frequency"
+      n: "frequency"
+      r: false
+      sh: "How often the subscription is renewed automatically."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      ro: true
+      sh: "Subscription identifier tag."
+      t: "`$STRING`"
+    }
+    price: {
+      h: "Price"
+      n: "price"
+      r: false
+      ro: true
+      sh: "The price of the subscription that will be billed, in US dollars."
+      t: "`$NUMBER`"
+    }
+    rate_plan: {
+      h: "Rate Plan"
+      n: "rate_plan"
+      r: false
+      sh: "The rate plan applied to the subscription."
+      t: "`$OBJECT`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$OBJECT`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      ro: true
+      sh: "The state that the subscription is in."
+      t: "`$STRING`"
+    }
+    zone: {
+      h: "Zone"
+      n: "zone"
+      r: false
+      sh: "A simple zone object."
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "bill_subs_api_account_subscription_response_single"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/subscriptions/{subscription_identifier}/action/append"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "506e3185e9c882d175a2d0cb0093d9f2"
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/subscriptions/{subscription_identifier}/action/append"
+          q: {
+            exist: [
+              "account_id"
+              "subscription_id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_identifier: "subscription_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "action"
+            }
+            {
+              lit: "append"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/subscriptions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/subscriptions"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/subscriptions/{subscription_identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "506e3185e9c882d175a2d0cb0093d9f2"
+                k: "param"
+                n: "subscription_identifier"
+                or: "subscription_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/subscriptions/{subscription_identifier}"
+          q: {
+            exist: [
+              "account_id"
+              "subscription_identifier"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/subscriptions/{subscription_identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "506e3185e9c882d175a2d0cb0093d9f2"
+                k: "param"
+                n: "subscription_identifier"
+                or: "subscription_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/subscriptions/{subscription_identifier}"
+          q: {
+            exist: [
+              "account_id"
+              "subscription_identifier"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

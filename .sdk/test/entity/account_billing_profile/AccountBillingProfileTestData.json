@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "account_billing_profile": {
+      "ACCOUNT_BILLING_PROFILE00": {
+        "account_id": "ACCOUNT01",
+        "id": "ACCOUNT_BILLING_PROFILE00"
+      },
+      "ACCOUNT_BILLING_PROFILE01": {
+        "account_id": "ACCOUNT01",
+        "id": "ACCOUNT_BILLING_PROFILE01"
+      },
+      "ACCOUNT_BILLING_PROFILE02": {
+        "account_id": "ACCOUNT01",
+        "id": "ACCOUNT_BILLING_PROFILE02"
+      }
+    }
+  },
+  "new": {
+    "account_billing_profile": {
+      "account_billing_profile_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/billing/profile": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

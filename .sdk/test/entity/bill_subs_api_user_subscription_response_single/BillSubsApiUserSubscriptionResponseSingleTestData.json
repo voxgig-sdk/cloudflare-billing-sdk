@@ -1,0 +1,76 @@
+{
+  "existing": {
+    "bill_subs_api_user_subscription_response_single": {
+      "BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE00": {
+        "app": {},
+        "component_values": [],
+        "currency": "s70",
+        "current_period_end": "s71",
+        "current_period_start": "s72",
+        "frequency": "s73",
+        "id": "BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE00",
+        "price": 117,
+        "rate_plan": {},
+        "state": "s77",
+        "zone": {},
+        "identifier": "IDENTIFIER01"
+      },
+      "BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE01": {
+        "app": {},
+        "component_values": [],
+        "currency": "sde",
+        "current_period_end": "sdf",
+        "current_period_start": "se0",
+        "frequency": "se1",
+        "id": "BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE01",
+        "price": 227,
+        "rate_plan": {},
+        "state": "se5",
+        "zone": {},
+        "identifier": "IDENTIFIER01"
+      },
+      "BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE02": {
+        "app": {},
+        "component_values": [],
+        "currency": "s14c",
+        "current_period_end": "s14d",
+        "current_period_start": "s14e",
+        "frequency": "s14f",
+        "id": "BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_SINGLE02",
+        "price": 337,
+        "rate_plan": {},
+        "state": "s153",
+        "zone": {},
+        "identifier": "IDENTIFIER01"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_user_subscription_response_single": {
+      "bill_subs_api_user_subscription_response_single_ref01": {
+        "app": {},
+        "component_values": [],
+        "currency": "s1ba",
+        "current_period_end": "s1bb",
+        "current_period_start": "s1bc",
+        "frequency": "s1bd",
+        "price": 447,
+        "rate_plan": {},
+        "state": "s1c1",
+        "zone": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /user/subscriptions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /user/subscriptions/{identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

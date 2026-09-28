@@ -1,0 +1,22 @@
+# BasicBillSubsApiUserSubscriptionResponseCollectionFlow
+
+main: kit: flow: BasicBillSubsApiUserSubscriptionResponseCollectionFlow:
+{
+  entity: "bill_subs_api_user_subscription_response_collection",
+  kind: "basic",
+  name: "BasicBillSubsApiUserSubscriptionResponseCollectionFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "bill_subs_api_user_subscription_response_collection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillSubsApiUserSubscriptionResponseCollectionFlow"
+}

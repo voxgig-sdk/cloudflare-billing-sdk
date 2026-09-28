@@ -1,0 +1,33 @@
+# BasicAccountBillingFlow
+
+main: kit: flow: BasicAccountBillingFlow:
+{
+  entity: "account_billing",
+  kind: "basic",
+  name: "BasicAccountBillingFlow",
+  step: [
+    {
+      i: {
+        ref: "account_billing_ref01",
+        srcdatavar: "account_billing_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "account_billing01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-account_billing_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAccountBillingFlow"
+}

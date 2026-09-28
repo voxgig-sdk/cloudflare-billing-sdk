@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "bill_subs_api_rate_plan_simple": {
+      "BILL_SUBS_API_RATE_PLAN_SIMPLE00": {
+        "result": {},
+        "public_key": "PUBLIC_KEY01",
+        "id": "BILL_SUBS_API_RATE_PLAN_SIMPLE00"
+      },
+      "BILL_SUBS_API_RATE_PLAN_SIMPLE01": {
+        "result": {},
+        "public_key": "PUBLIC_KEY01",
+        "id": "BILL_SUBS_API_RATE_PLAN_SIMPLE01"
+      },
+      "BILL_SUBS_API_RATE_PLAN_SIMPLE02": {
+        "result": {},
+        "public_key": "PUBLIC_KEY01",
+        "id": "BILL_SUBS_API_RATE_PLAN_SIMPLE02"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_rate_plan_simple": {
+      "bill_subs_api_rate_plan_simple_ref01": {
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /billing/rate_plans/{public_key}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

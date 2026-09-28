@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "bill_subs_api_account_credit": {
+      "BILL_SUBS_API_ACCOUNT_CREDIT00": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_ACCOUNT_CREDIT00"
+      },
+      "BILL_SUBS_API_ACCOUNT_CREDIT01": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_ACCOUNT_CREDIT01"
+      },
+      "BILL_SUBS_API_ACCOUNT_CREDIT02": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_ACCOUNT_CREDIT02"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_account_credit": {
+      "bill_subs_api_account_credit_ref01": {
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/billing/credits": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

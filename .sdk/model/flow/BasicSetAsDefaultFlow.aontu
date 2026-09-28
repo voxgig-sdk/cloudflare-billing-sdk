@@ -1,0 +1,23 @@
+# BasicSetAsDefaultFlow
+
+main: kit: flow: BasicSetAsDefaultFlow:
+{
+  entity: "set_as_default",
+  kind: "basic",
+  name: "BasicSetAsDefaultFlow",
+  step: [
+    {
+      i: {
+        ref: "set_as_default_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        payment_method_id: "payment_method01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicSetAsDefaultFlow"
+}

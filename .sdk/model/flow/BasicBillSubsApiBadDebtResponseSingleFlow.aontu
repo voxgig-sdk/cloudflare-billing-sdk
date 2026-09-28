@@ -1,0 +1,32 @@
+# BasicBillSubsApiBadDebtResponseSingleFlow
+
+main: kit: flow: BasicBillSubsApiBadDebtResponseSingleFlow:
+{
+  entity: "bill_subs_api_bad_debt_response_single",
+  kind: "basic",
+  name: "BasicBillSubsApiBadDebtResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "bill_subs_api_bad_debt_response_single_ref01",
+        srcdatavar: "bill_subs_api_bad_debt_response_single_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "bill_subs_api_bad_debt_response_single01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-bill_subs_api_bad_debt_response_single_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillSubsApiBadDebtResponseSingleFlow"
+}

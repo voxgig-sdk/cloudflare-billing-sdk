@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "zone_subscription": {
+      "ZONE_SUBSCRIPTION00": {
+        "id": "ZONE_SUBSCRIPTION00"
+      },
+      "ZONE_SUBSCRIPTION01": {
+        "id": "ZONE_SUBSCRIPTION01"
+      },
+      "ZONE_SUBSCRIPTION02": {
+        "id": "ZONE_SUBSCRIPTION02"
+      }
+    }
+  },
+  "new": {
+    "zone_subscription": {
+      "zone_subscription_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /zones/{zone_id}/subscription": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /zones/{zone_id}/subscriptions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "existing": {
+    "bill_subs_api_account_subscription_response_single": {
+      "BILL_SUBS_API_ACCOUNT_SUBSCRIPTION_RESPONSE_SINGLE00": {
+        "app": {},
+        "component_values": [],
+        "currency": "s7a",
+        "current_period_end": "s7b",
+        "current_period_start": "s7c",
+        "frequency": "s7d",
+        "id": "BILL_SUBS_API_ACCOUNT_SUBSCRIPTION_RESPONSE_SINGLE00",
+        "price": 127,
+        "rate_plan": {},
+        "result": {},
+        "state": "s82",
+        "zone": {},
+        "account_id": "ACCOUNT01",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_identifier": "SUBSCRIPTION_IDENTIFIER01"
+      },
+      "BILL_SUBS_API_ACCOUNT_SUBSCRIPTION_RESPONSE_SINGLE01": {
+        "app": {},
+        "component_values": [],
+        "currency": "sf2",
+        "current_period_end": "sf3",
+        "current_period_start": "sf4",
+        "frequency": "sf5",
+        "id": "BILL_SUBS_API_ACCOUNT_SUBSCRIPTION_RESPONSE_SINGLE01",
+        "price": 247,
+        "rate_plan": {},
+        "result": {},
+        "state": "sfa",
+        "zone": {},
+        "account_id": "ACCOUNT01",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_identifier": "SUBSCRIPTION_IDENTIFIER01"
+      },
+      "BILL_SUBS_API_ACCOUNT_SUBSCRIPTION_RESPONSE_SINGLE02": {
+        "app": {},
+        "component_values": [],
+        "currency": "s16a",
+        "current_period_end": "s16b",
+        "current_period_start": "s16c",
+        "frequency": "s16d",
+        "id": "BILL_SUBS_API_ACCOUNT_SUBSCRIPTION_RESPONSE_SINGLE02",
+        "price": 367,
+        "rate_plan": {},
+        "result": {},
+        "state": "s172",
+        "zone": {},
+        "account_id": "ACCOUNT01",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_identifier": "SUBSCRIPTION_IDENTIFIER01"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_account_subscription_response_single": {
+      "bill_subs_api_account_subscription_response_single_ref01": {
+        "app": {},
+        "component_values": [],
+        "currency": "s1e2",
+        "current_period_end": "s1e3",
+        "current_period_start": "s1e4",
+        "frequency": "s1e5",
+        "price": 487,
+        "rate_plan": {},
+        "result": {},
+        "state": "s1ea",
+        "zone": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/subscriptions/{subscription_identifier}/action/append": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/subscriptions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/subscriptions/{subscription_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/subscriptions/{subscription_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# BasicBillableUsageApiUsageInfoFlow
+
+main: kit: flow: BasicBillableUsageApiUsageInfoFlow:
+{
+  entity: "billable_usage_api_usage_info",
+  kind: "basic",
+  name: "BasicBillableUsageApiUsageInfoFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "billable_usage_api_usage_info_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillableUsageApiUsageInfoFlow"
+}

@@ -1,0 +1,375 @@
+# Entity: bill_subs_api_billing_response_single
+
+main: kit: entity: bill_subs_api_billing_response_single: {
+
+  alias: field: {}
+
+  fields: {
+    address: {
+      h: "Address"
+      n: "address"
+      r: false
+      sh: "Street address line 1."
+      t: "`$STRING`"
+    }
+    address2: {
+      h: "Address2"
+      n: "address2"
+      r: false
+      sh: "Street address line 2 (apt, suite, etc.)."
+      t: "`$STRING`"
+    }
+    billing_email: {
+      h: "Billing Email"
+      n: "billing_email"
+      r: false
+      sh: "Primary billing email address."
+      t: "`$STRING`"
+    }
+    buying_rate_plan: {
+      h: "Buying Rate Plan"
+      n: "buying_rate_plan"
+      r: false
+      sh: "Rate plan being purchased right after profile setup."
+      t: "`$STRING`"
+    }
+    captcha_challenge_jwt: {
+      h: "Captcha Challenge Jwt"
+      n: "captcha_challenge_jwt"
+      r: false
+      sh: "Captcha challenge JWT issued during onboarding."
+      t: "`$STRING`"
+    }
+    cf_turnstile_response: {
+      h: "Cf Turnstile Response"
+      n: "cf_turnstile_response"
+      r: false
+      sh: "Cloudflare Turnstile response."
+      t: "`$STRING`"
+    }
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      sh: "City on the billing profile."
+      t: "`$STRING`"
+    }
+    company: {
+      h: "Company"
+      n: "company"
+      r: false
+      sh: "Company name on the billing profile."
+      t: "`$STRING`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      sh: "ISO 3166-1 alpha-2 country code."
+      t: "`$STRING`"
+    }
+    first_name: {
+      h: "First Name"
+      n: "first_name"
+      r: false
+      sh: "First name on the billing profile."
+      t: "`$STRING`"
+    }
+    h_captcha_response: {
+      h: "H Captcha Response"
+      n: "h_captcha_response"
+      r: false
+      sh: "hCaptcha response."
+      t: "`$STRING`"
+    }
+    last_name: {
+      h: "Last Name"
+      n: "last_name"
+      r: false
+      sh: "Last name on the billing profile."
+      t: "`$STRING`"
+    }
+    preferred_locale: {
+      h: "Preferred Locale"
+      n: "preferred_locale"
+      r: false
+      sh: "Preferred locale for invoice rendering (BCP 47)."
+      t: "`$STRING`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$OBJECT`"
+    }
+    secondary_billing_email: {
+      h: "Secondary Billing Email"
+      n: "secondary_billing_email"
+      r: false
+      sh: "Secondary billing email address for CC on invoices."
+      t: "`$STRING`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      sh: "State or region on the billing profile."
+      t: "`$STRING`"
+    }
+    tax_id_type: {
+      h: "Tax Id Type"
+      n: "tax_id_type"
+      r: false
+      sh: "Type of tax ID provided."
+      t: "`$STRING`"
+    }
+    telephone: {
+      h: "Telephone"
+      n: "telephone"
+      r: false
+      sh: "Contact phone number."
+      t: "`$STRING`"
+    }
+    vat: {
+      h: "Vat"
+      n: "vat"
+      r: false
+      sh: "VAT identifier."
+      t: "`$STRING`"
+    }
+    zipcode: {
+      h: "Zipcode"
+      n: "zipcode"
+      r: false
+      sh: "ZIP or postal code."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "bill_subs_api_billing_response_single"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/billing/profile"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/billing/profile"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "profile"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/billing/profile"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/billing/profile"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "profile"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /user/billing/profile"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/user/billing/profile"
+          s: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "profile"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/billing/profile"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/billing/profile"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "profile"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/billing/profile"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/billing/profile"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "profile"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

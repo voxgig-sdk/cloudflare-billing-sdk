@@ -1,0 +1,192 @@
+# Entity: billable_usage_api_v2_usage
+
+main: kit: entity: billable_usage_api_v2_usage: {
+
+  alias: field: {}
+
+  fields: {
+    FilterBy: {
+      h: "Filter By"
+      n: "FilterBy"
+      r: false
+      sh: "Usage filters."
+      t: "`$OBJECT`"
+    }
+    GroupBy: {
+      h: "Group By"
+      n: "GroupBy"
+      r: false
+      sh: "Grouping definitions used to split result rows."
+      t: "`$ARRAY`"
+    }
+    TimePeriod: {
+      h: "Time Period"
+      n: "TimePeriod"
+      r: false
+      sh: "Charge period to query, i.e."
+      t: "`$OBJECT`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      sh: "Contains error details if the request failed."
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      sh: "Contains informational notices about the response."
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      sh: "Contains the array of cost and usage records."
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      sh: "Indicates whether the API call was successful."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "billable_usage_api_v2_usage"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/billable/usage"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/billable/usage"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "billable"
+            }
+            {
+              lit: "usage"
+            }
+          ]
+          t: {
+            req: {
+              FilterBy: "`reqdata.filter_by`"
+              GroupBy: "`reqdata.group_by`"
+              TimePeriod: "`reqdata.time_period`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/billable/usage"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "2025-05-01"
+                k: "query"
+                n: "from"
+                or: "from"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2025-05-31"
+                k: "query"
+                n: "to"
+                or: "to"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/billable/usage"
+          q: {
+            exist: [
+              "account_id"
+              "from"
+              "to"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "billable"
+            }
+            {
+              lit: "usage"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

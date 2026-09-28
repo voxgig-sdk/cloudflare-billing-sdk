@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "bill_subs_api_plan_response_collection": {
+      "BILL_SUBS_API_PLAN_RESPONSE_COLLECTION00": {
+        "result": [],
+        "zone_id": "ZONE01"
+      },
+      "BILL_SUBS_API_PLAN_RESPONSE_COLLECTION01": {
+        "result": [],
+        "zone_id": "ZONE01"
+      },
+      "BILL_SUBS_API_PLAN_RESPONSE_COLLECTION02": {
+        "result": [],
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_plan_response_collection": {
+      "bill_subs_api_plan_response_collection_ref01": {
+        "result": []
+      }
+    }
+  },
+  "requests": {
+    "GET /zones/{zone_id}/available_rate_plans": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

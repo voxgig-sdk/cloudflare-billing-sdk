@@ -1,0 +1,9 @@
+# BasicAccountBillingProfileFlow
+
+main: kit: flow: BasicAccountBillingProfileFlow:
+{
+  entity: "account_billing_profile",
+  kind: "basic",
+  name: "BasicAccountBillingProfileFlow",
+  "key$": "BasicAccountBillingProfileFlow"
+}

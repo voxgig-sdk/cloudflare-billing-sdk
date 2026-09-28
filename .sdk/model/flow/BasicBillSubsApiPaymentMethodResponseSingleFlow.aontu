@@ -1,0 +1,68 @@
+# BasicBillSubsApiPaymentMethodResponseSingleFlow
+
+main: kit: flow: BasicBillSubsApiPaymentMethodResponseSingleFlow:
+{
+  entity: "bill_subs_api_payment_method_response_single",
+  kind: "basic",
+  name: "BasicBillSubsApiPaymentMethodResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "bill_subs_api_payment_method_response_single_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "bill_subs_api_payment_method_response_single_ref01",
+        srcdatavar: "bill_subs_api_payment_method_response_single_ref01_data",
+        suffix: "_up0",
+        textfield: "address"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-bill_subs_api_payment_method_response_single_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "bill_subs_api_payment_method_response_single_ref01",
+        srcdatavar: "bill_subs_api_payment_method_response_single_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "bill_subs_api_payment_method_response_single01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-bill_subs_api_payment_method_response_single_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillSubsApiPaymentMethodResponseSingleFlow"
+}

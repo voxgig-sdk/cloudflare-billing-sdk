@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "bill_subs_api_bad_debt_response_single": {
+      "BILL_SUBS_API_BAD_DEBT_RESPONSE_SINGLE00": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_BAD_DEBT_RESPONSE_SINGLE00"
+      },
+      "BILL_SUBS_API_BAD_DEBT_RESPONSE_SINGLE01": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_BAD_DEBT_RESPONSE_SINGLE01"
+      },
+      "BILL_SUBS_API_BAD_DEBT_RESPONSE_SINGLE02": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_BAD_DEBT_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_bad_debt_response_single": {
+      "bill_subs_api_bad_debt_response_single_ref01": {
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/billing/bad-debt": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

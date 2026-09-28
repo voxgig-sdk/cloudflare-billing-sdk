@@ -1,0 +1,131 @@
+{
+  "existing": {
+    "bill_subs_api_billing_response_single": {
+      "BILL_SUBS_API_BILLING_RESPONSE_SINGLE00": {
+        "address": "sc8",
+        "address2": "sc9",
+        "billing_email": "sca",
+        "buying_rate_plan": "scb",
+        "captcha_challenge_jwt": "scc",
+        "cf_turnstile_response": "scd",
+        "city": "sce",
+        "company": "scf",
+        "country": "sd0",
+        "first_name": "sd1",
+        "h_captcha_response": "sd2",
+        "last_name": "sd3",
+        "preferred_locale": "sd4",
+        "result": {},
+        "secondary_billing_email": "sd6",
+        "state": "sd7",
+        "tax_id_type": "sd8",
+        "telephone": "sd9",
+        "vat": "sda",
+        "zipcode": "sdb",
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_BILLING_RESPONSE_SINGLE00"
+      },
+      "BILL_SUBS_API_BILLING_RESPONSE_SINGLE01": {
+        "address": "s190",
+        "address2": "s191",
+        "billing_email": "s192",
+        "buying_rate_plan": "s193",
+        "captcha_challenge_jwt": "s194",
+        "cf_turnstile_response": "s195",
+        "city": "s196",
+        "company": "s197",
+        "country": "s198",
+        "first_name": "s199",
+        "h_captcha_response": "s19a",
+        "last_name": "s19b",
+        "preferred_locale": "s19c",
+        "result": {},
+        "secondary_billing_email": "s19e",
+        "state": "s19f",
+        "tax_id_type": "s1a0",
+        "telephone": "s1a1",
+        "vat": "s1a2",
+        "zipcode": "s1a3",
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_BILLING_RESPONSE_SINGLE01"
+      },
+      "BILL_SUBS_API_BILLING_RESPONSE_SINGLE02": {
+        "address": "s258",
+        "address2": "s259",
+        "billing_email": "s25a",
+        "buying_rate_plan": "s25b",
+        "captcha_challenge_jwt": "s25c",
+        "cf_turnstile_response": "s25d",
+        "city": "s25e",
+        "company": "s25f",
+        "country": "s260",
+        "first_name": "s261",
+        "h_captcha_response": "s262",
+        "last_name": "s263",
+        "preferred_locale": "s264",
+        "result": {},
+        "secondary_billing_email": "s266",
+        "state": "s267",
+        "tax_id_type": "s268",
+        "telephone": "s269",
+        "vat": "s26a",
+        "zipcode": "s26b",
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_BILLING_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_billing_response_single": {
+      "bill_subs_api_billing_response_single_ref01": {
+        "address": "s320",
+        "address2": "s321",
+        "billing_email": "s322",
+        "buying_rate_plan": "s323",
+        "captcha_challenge_jwt": "s324",
+        "cf_turnstile_response": "s325",
+        "city": "s326",
+        "company": "s327",
+        "country": "s328",
+        "first_name": "s329",
+        "h_captcha_response": "s32a",
+        "last_name": "s32b",
+        "preferred_locale": "s32c",
+        "result": {},
+        "secondary_billing_email": "s32e",
+        "state": "s32f",
+        "tax_id_type": "s330",
+        "telephone": "s331",
+        "vat": "s332",
+        "zipcode": "s333"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/billing/profile": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/billing/profile": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /user/billing/profile": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/billing/profile": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/billing/profile": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

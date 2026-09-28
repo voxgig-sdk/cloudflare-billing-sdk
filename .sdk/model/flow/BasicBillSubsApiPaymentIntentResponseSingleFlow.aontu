@@ -1,0 +1,22 @@
+# BasicBillSubsApiPaymentIntentResponseSingleFlow
+
+main: kit: flow: BasicBillSubsApiPaymentIntentResponseSingleFlow:
+{
+  entity: "bill_subs_api_payment_intent_response_single",
+  kind: "basic",
+  name: "BasicBillSubsApiPaymentIntentResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "bill_subs_api_payment_intent_response_single_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicBillSubsApiPaymentIntentResponseSingleFlow"
+}

@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "user_subscription": {
+      "USER_SUBSCRIPTION00": {
+        "id": "USER_SUBSCRIPTION00"
+      },
+      "USER_SUBSCRIPTION01": {
+        "id": "USER_SUBSCRIPTION01"
+      },
+      "USER_SUBSCRIPTION02": {
+        "id": "USER_SUBSCRIPTION02"
+      }
+    }
+  },
+  "new": {
+    "user_subscription": {
+      "user_subscription_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /user/subscriptions/{identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

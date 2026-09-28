@@ -1,0 +1,37 @@
+# BasicBillSubsApiUserSubscriptionResponseSingleFlow
+
+main: kit: flow: BasicBillSubsApiUserSubscriptionResponseSingleFlow:
+{
+  entity: "bill_subs_api_user_subscription_response_single",
+  kind: "basic",
+  name: "BasicBillSubsApiUserSubscriptionResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "bill_subs_api_user_subscription_response_single_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "bill_subs_api_user_subscription_response_single_ref01",
+        srcdatavar: "bill_subs_api_user_subscription_response_single_ref01_data",
+        suffix: "_up0",
+        textfield: "frequency"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-bill_subs_api_user_subscription_response_single_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillSubsApiUserSubscriptionResponseSingleFlow"
+}

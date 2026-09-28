@@ -1,0 +1,32 @@
+# BasicBillSubsApiRatePlanSimpleFlow
+
+main: kit: flow: BasicBillSubsApiRatePlanSimpleFlow:
+{
+  entity: "bill_subs_api_rate_plan_simple",
+  kind: "basic",
+  name: "BasicBillSubsApiRatePlanSimpleFlow",
+  step: [
+    {
+      i: {
+        ref: "bill_subs_api_rate_plan_simple_ref01",
+        srcdatavar: "bill_subs_api_rate_plan_simple_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "bill_subs_api_rate_plan_simple01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-bill_subs_api_rate_plan_simple_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillSubsApiRatePlanSimpleFlow"
+}

@@ -1,0 +1,9 @@
+# BasicZoneSubscriptionFlow
+
+main: kit: flow: BasicZoneSubscriptionFlow:
+{
+  entity: "zone_subscription",
+  kind: "basic",
+  name: "BasicZoneSubscriptionFlow",
+  "key$": "BasicZoneSubscriptionFlow"
+}

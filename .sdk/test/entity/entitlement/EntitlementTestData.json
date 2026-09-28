@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "entitlement": {
+      "ENTITLEMENT00": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "zone_id": "ZONE01"
+      },
+      "ENTITLEMENT01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "zone_id": "ZONE01"
+      },
+      "ENTITLEMENT02": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "entitlement": {
+      "entitlement_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/entitlements": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/entitlements": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

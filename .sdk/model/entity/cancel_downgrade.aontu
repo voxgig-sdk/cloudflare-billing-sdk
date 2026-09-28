@@ -1,0 +1,72 @@
+# Entity: cancel_downgrade
+
+main: kit: entity: cancel_downgrade: {
+
+  alias: field: {}
+
+  fields: {
+    subscription_ids: {
+      h: "Subscription Ids"
+      n: "subscription_ids"
+      r: false
+      sh: "List of subscription identifiers to cancel downgrades for."
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "cancel_downgrade"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/subscriptions/cancel-downgrade"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/subscriptions/cancel-downgrade"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "cancel-downgrade"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

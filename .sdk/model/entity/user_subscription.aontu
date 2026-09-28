@@ -1,0 +1,78 @@
+# Entity: user_subscription
+
+main: kit: entity: user_subscription: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "user_subscription"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /user/subscriptions/{identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "506e3185e9c882d175a2d0cb0093d9f2"
+                k: "param"
+                n: "id"
+                or: "identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/user/subscriptions/{identifier}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              identifier: "id"
+            }
+          }
+          s: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

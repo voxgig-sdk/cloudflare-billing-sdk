@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "billable_usage_api_v2_usage": {
+      "BILLABLE_USAGE_API_V2_USAGE00": {
+        "FilterBy": {},
+        "GroupBy": [],
+        "TimePeriod": {},
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "BILLABLE_USAGE_API_V2_USAGE00"
+      },
+      "BILLABLE_USAGE_API_V2_USAGE01": {
+        "FilterBy": {},
+        "GroupBy": [],
+        "TimePeriod": {},
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "BILLABLE_USAGE_API_V2_USAGE01"
+      },
+      "BILLABLE_USAGE_API_V2_USAGE02": {
+        "FilterBy": {},
+        "GroupBy": [],
+        "TimePeriod": {},
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "BILLABLE_USAGE_API_V2_USAGE02"
+      }
+    }
+  },
+  "new": {
+    "billable_usage_api_v2_usage": {
+      "billable_usage_api_v2_usage_ref01": {
+        "FilterBy": {},
+        "GroupBy": [],
+        "TimePeriod": {},
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/billable/usage": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/billable/usage": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

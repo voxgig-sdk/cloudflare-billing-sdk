@@ -1,0 +1,68 @@
+# Entity: bill_subs_api_rate_plan_simple
+
+main: kit: entity: bill_subs_api_rate_plan_simple: {
+
+  alias: field: {}
+
+  fields: {
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "bill_subs_api_rate_plan_simple"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /billing/rate_plans/{public_key}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "teams_free"
+                k: "param"
+                n: "public_key"
+                or: "public_key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/billing/rate_plans/{public_key}"
+          q: {
+            exist: [
+              "public_key"
+            ]
+          }
+          s: [
+            {
+              lit: "billing"
+            }
+            {
+              lit: "rate_plans"
+            }
+            {
+              var: "public_key"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

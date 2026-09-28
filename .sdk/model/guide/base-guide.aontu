@@ -1,0 +1,272 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 35
+  metrics: count: path: 36
+  metrics: count: method: 55
+
+  entity: account_billing: {
+    path: "/accounts/{account_id}/receipts/{receipt_id}/pdf": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: account_billing_profile: {
+    path: "/accounts/{account_id}/billing/profile": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: account_subscription: {
+    path: "/accounts/{account_id}/subscriptions/{subscription_identifier}": {
+      rename: param: "subscription_identifier": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: bill_subs_api_account_billing_history_collection: {
+    path: "/accounts/{account_id}/billing/history": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_account_credit: {
+    path: "/accounts/{account_id}/billing/credits": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_account_subscription_response_collection: {
+    path: "/accounts/{account_id}/subscriptions": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_account_subscription_response_single: {
+    path: "/accounts/{account_id}/subscriptions": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/subscriptions/{subscription_identifier}": {
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/subscriptions/{subscription_identifier}/action/append": {
+      rename: param: "subscription_identifier": *"subscription_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: bill_subs_api_address_validation_response_single: {
+    path: "/billing/address-validation": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: bill_subs_api_bad_debt_response_single: {
+    path: "/accounts/{account_id}/billing/bad-debt": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_billing_history_collection: {
+    path: "/user/billing/history": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_billing_response_single: {
+    path: "/accounts/{account_id}/billing/profile": {
+      op: create: method: *POST
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+    path: "/user/billing/profile": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_cancel_reason_response_single: {
+    path: "/accounts/{account_id}/subscriptions/{subscription_identifier}/cancel-reason": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_client_secret_response_single: {
+    path: "/accounts/{account_id}/pay-bad-debt": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/pay-invoice": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: bill_subs_api_payment_intent_response_single: {
+    path: "/accounts/{account_id}/billing/profile/payment-method": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: bill_subs_api_payment_method_response_collection: {
+    path: "/accounts/{account_id}/payment-methods": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_payment_method_response_single: {
+    path: "/accounts/{account_id}/payment-methods": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/payment-methods/{payment_method_id}": {
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: bill_subs_api_plan_response_collection: {
+    path: "/zones/{zone_id}/available_rate_plans": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_rate_plan_simple: {
+    path: "/billing/rate_plans/{public_key}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_unpaid_invoices_response_single: {
+    path: "/accounts/{account_id}/billing/unpaid-invoice": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_user_subscription_response_collection: {
+    path: "/user/subscriptions": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: bill_subs_api_user_subscription_response_single: {
+    path: "/user/subscriptions": {
+      op: create: method: *POST
+    }
+    path: "/user/subscriptions/{identifier}": {
+      op: update: method: *PUT
+    }
+  }
+
+  entity: bill_subs_api_zone_subscription_response_single: {
+    path: "/zones/{zone_id}/subscription": {
+      op: create: method: *POST
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/zones/{zone_id}/subscriptions": {
+      op: create: method: *POST
+      op: update: method: *PUT
+    }
+  }
+
+  entity: billable_usage: {
+    path: "/accounts/{account_id}/billable-usage": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: billable_usage_api_usage_info: {
+    path: "/accounts/{account_id}/billable-usage/info": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: billable_usage_api_v2_account_billable_metric: {
+    path: "/accounts/{account_id}/billable/usage/billable-metrics": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: billable_usage_api_v2_usage: {
+    path: "/accounts/{account_id}/billable/usage": {
+      op: create: method: *POST
+      op: create: transform: req: "FilterBy": *("`reqdata.filter_by`")|top
+      op: create: transform: req: "GroupBy": *("`reqdata.group_by`")|top
+      op: create: transform: req: "TimePeriod": *("`reqdata.time_period`")|top
+      op: list: method: *GET
+    }
+  }
+
+  entity: cancel_downgrade: {
+    path: "/accounts/{account_id}/subscriptions/cancel-downgrade": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: entitlement: {
+    path: "/accounts/{account_id}/entitlements": {
+      op: list: method: *GET
+    }
+    path: "/zones/{zone_id}/entitlements": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: invoice: {
+    path: "/accounts/{account_id}/invoices": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: payment_method: {
+    path: "/accounts/{account_id}/payment-methods/{payment_method_id}": {
+      rename: param: "payment_method_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: set_as_default: {
+    path: "/accounts/{account_id}/payment-methods/{payment_method_id}/set-as-default": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: usage: {
+    path: "/accounts/{account_id}/billing/usage": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: user_subscription: {
+    path: "/user/subscriptions/{identifier}": {
+      rename: param: "identifier": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: zone_rate_plan: {
+    path: "/zones/{zone_id}/available_plans": {
+      action: "available_plans": {}
+      rename: param: "zone_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/zones/{zone_id}/available_plans/{plan_identifier}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: zone_subscription: {
+    path: "/zones/{zone_id}/subscription": {
+      rename: param: "zone_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/zones/{zone_id}/subscriptions": {
+      rename: param: "zone_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+}

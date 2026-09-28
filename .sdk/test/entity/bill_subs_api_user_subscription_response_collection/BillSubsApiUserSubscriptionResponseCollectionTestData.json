@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "bill_subs_api_user_subscription_response_collection": {
+      "BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_COLLECTION00": {
+        "result": []
+      },
+      "BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_COLLECTION01": {
+        "result": []
+      },
+      "BILL_SUBS_API_USER_SUBSCRIPTION_RESPONSE_COLLECTION02": {
+        "result": []
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_user_subscription_response_collection": {
+      "bill_subs_api_user_subscription_response_collection_ref01": {
+        "result": []
+      }
+    }
+  },
+  "requests": {
+    "GET /user/subscriptions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}
